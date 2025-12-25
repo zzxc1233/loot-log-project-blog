@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+@theme {
+  /* Font Family */
+  --font-family-sans: 'Poppins', sans-serif;
+
+  /* Base Colors */
+  --color-brown-600: #26231E;
+  --color-brown-500: #43403B;
+  --color-brown-400: #75716B;
+  --color-brown-300: #DAD6D1;
+  --color-brown-200: #EFEEEB;
+  --color-brown-100: #F9F8F6;
+  --color-white: #FFFFFF;
+  --color-gray-100: #F5F5F5;
+
+  /* Brand Colors */
+  --color-orange: #F2B68C;
+  --color-green: #12B279;
+  --color-green-light: #D7F2E9;
+  --color-red: #EB5164;
+
+  /* Typography - Headline */
+  --font-size-headline: 52px;
+  --font-weight-headline: 600;
+  --line-height-headline: 60px;
+  --letter-spacing-headline: 0%;
+
+  --font-size-headline-2: 40px;
+  --font-weight-headline-2: 600;
+  --line-height-headline-2: 48px;
+  --letter-spacing-headline-2: 0%;
+
+  --font-size-headline-3: 32px;
+  --font-weight-headline-3: 600;
+  --line-height-headline-3: 40px;
+  --letter-spacing-headline-3: 0%;
+
+  --font-size-headline-4: 24px;
+  --font-weight-headline-4: 600;
+  --line-height-headline-4: 32px;
+  --letter-spacing-headline-4: 0%;
+
+  /* Typography - Body */
+  --font-size-body: 16px;
+  --font-weight-body: 500;
+  --line-height-body: 24px;
+  --letter-spacing-body: 0%;
+
+  --font-size-body-2: 14px;
+  --font-weight-body-2: 500;
+  --line-height-body-2: 20px;
+  --letter-spacing-body-2: 0%;
+
+  --font-size-body-3: 12px;
+  --font-weight-body-3: 500;
+  --line-height-body-3: 16px;
+  --letter-spacing-body-3: 0%;
+
+  /* Typography - Font */
+  --font-family-font: 'Roboto', sans-serif;
+  --font-size-font: 32px;
+  --font-weight-font: 500;
+  --line-height-font: 40px;
+  --letter-spacing-font: -2%;
+}
+
+/* Custom utility classes for typography */
+.text-headline {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-headline);
+  font-weight: var(--font-weight-headline);
+  line-height: var(--line-height-headline);
+  letter-spacing: var(--letter-spacing-headline);
+}
+
+.text-body {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-body);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-body);
+}
+
+.text-headline-2 {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-headline-2);
+  font-weight: var(--font-weight-headline-2);
+  line-height: var(--line-height-headline-2);
+  letter-spacing: var(--letter-spacing-headline-2);
+}
+
+.text-headline-3 {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-headline-3);
+  font-weight: var(--font-weight-headline-3);
+  line-height: var(--line-height-headline-3);
+  letter-spacing: var(--letter-spacing-headline-3);
+}
+
+.text-headline-4 {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-headline-4);
+  font-weight: var(--font-weight-headline-4);
+  line-height: var(--line-height-headline-4);
+  letter-spacing: var(--letter-spacing-headline-4);
+}
+
+.text-body-2 {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-body-2);
+  font-weight: var(--font-weight-body-2);
+  line-height: var(--line-height-body-2);
+  letter-spacing: var(--letter-spacing-body-2);
+}
+
+.text-body-3 {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-body-3);
+  font-weight: var(--font-weight-body-3);
+  line-height: var(--line-height-body-3);
+  letter-spacing: var(--letter-spacing-body-3);
+}
+
+.text-font {
+  font-family: var(--font-family-font);
+  font-size: var(--font-size-font);
+  font-weight: var(--font-weight-font);
+  line-height: var(--line-height-font);
+  letter-spacing: var(--letter-spacing-font);
+}
+
+/* Apply Poppins font to body */
+body {
+  font-family: var(--font-family-sans);
+}
