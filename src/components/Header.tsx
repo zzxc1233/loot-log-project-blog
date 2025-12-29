@@ -1,7 +1,7 @@
 function Header() {
   return (
     <>
-      <section className="min-h-screen bg-brown-100 py-10 px-4 xl:px-30 xl:py-15">
+      
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 xl:gap-16 items-center">
             <article className="space-y-6 xl:flex:col xl:items-end gap-4 xl:gap-6">
@@ -40,7 +40,7 @@ function Header() {
             </div>
           </div>
         </div>
-      </section>
+      
     </>
   )
 }
