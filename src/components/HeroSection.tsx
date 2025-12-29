@@ -9,10 +9,11 @@ function HeroSection() {
                 <div className="hidden xl:inline">
                     <Article />
                 </div>
-                <div className="inline xl:hidden">
-                    <Article />
-                </div>
+
             </section >
+            <div className="inline xl:hidden">
+                <Article />
+            </div>
         </>
     )
 }
