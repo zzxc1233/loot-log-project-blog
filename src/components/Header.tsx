@@ -1,13 +1,16 @@
+import Article from "./ArticleSection"
+
 function Header() {
-    return (
-      <section className="min-h-screen bg-brown-100 py-10 px-4">
+  return (
+    <>
+      <section className="min-h-screen bg-brown-100 py-10 px-4 xl:px-30 xl:py-15">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
-            <article className="space-y-6">
-              <h1 className="text-headline-2 text-brown-600 text-center">
-                Stay Informed,<br />Stay Inspired
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 xl:gap-16 items-center">
+            <article className="space-y-6 xl:flex:col xl:items-end gap-4 xl:gap-6">
+              <h1 className="text-headline-2 text-brown-600 text-center xl:text-right">
+                Stay <span className="hidden xl:inline"><br /></span>Informed, <span className="hidden xl:inline"><br /></span>Stay Inspired
               </h1>
-              <p className="text-body text-brown-400 text-center gap-16">
+              <p className="text-body text-brown-400 text-center gap-16 xl:text-right">
                 Discover a World of Knowledge at Your Fingertips. Your Daily Dose of Inspiration and information.
               </p>
             </article>
@@ -16,11 +19,11 @@ function Header() {
               <img
                 src="https://res.cloudinary.com/dcbpjtd1r/image/upload/v1728449784/my-blog-post/xgfy0xnvyemkklcqodkg.jpg"
                 alt="Man with cat in autumn forest"
-                className="w-full max-w-xs h-[529px] rounded-2xl object-cover"
+                className="w-full max-w-xs xl:max-w-none xl:w-sm h-[529px] rounded-2xl object-cover"
               />
             </div>
-            
-            <div className="space-y-4">
+
+            <div className="space-y-4 gap-3">
               <p className="text-body-3 text-brown-400">
                 -Author
               </p>
@@ -31,6 +34,7 @@ function Header() {
                 <p>
                   I am a pet enthusiast and freelance writer who specializes in animal behavior and care. With a deep love for cats, I enjoy sharing insights on feline companionship and wellness.
                 </p>
+                <br />
                 <p>
                   When I'm not writing, I spends time volunteering at my local animal shelter, helping cats find loving homes.
                 </p>
@@ -38,9 +42,16 @@ function Header() {
             </div>
           </div>
         </div>
+        <div className="hidden xl:inline">
+          <Article />
+        </div>
       </section>
-    )
-  }
-  
+      <div className="inline xl:hidden">
+        <Article />
+      </div>
+    </>
+  )
+}
 
-  export default Header
+
+export default Header
