@@ -1,6 +1,13 @@
 import { Search } from 'lucide-react';
-import { ChevronDown } from 'lucide-react';
 import { Button } from './ui/Button';
+import { Input } from './ui/input';
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select"
 
 function Article() {
     return (
@@ -24,27 +31,25 @@ function Article() {
                         <div className="">
                             <label htmlFor="search-input" className='' ></label>
                             <div className="relative">
-                                <input
-                                    type="text"
-                                    id="search-input"
-                                    name="search"
-                                    className="border rounded-lg border-brown-300 bg-white px-4 py-3 text-body w-full xl:w-sm"
-                                    placeholder="Search"
-                                />
+                                <Input className="border rounded-lg border-brown-300 bg-white px-4 py-3 text-body w-full min-h-12 xl:w-sm" placeholder='Search' />
+                                
                                 <Search className="absolute right-1/30 top-2/7 text-brown-400" />
                             </div>
                         </div>
                         <div className="xl:hidden flex flex-col gap-2 py-3">
                             <label htmlFor="highlight-input" className="text-body text-brown-400">Category</label>
                             <div className="relative">
-                                <input
-                                    type="text"
-                                    id="highlight-input"
-                                    name="highlight"
-                                    className="border rounded-lg border-brown-300 bg-white px-4 py-3 text-body w-full"
-                                    placeholder="Highlight"
-                                />
-                                <ChevronDown className="absolute right-1/30 top-2/7 text-brown-400" />
+                                <Select>
+                                    <SelectTrigger className="border rounded-lg border-brown-300 bg-white px-4 py-3 text-body text-brown-400 w-full min-h-12">
+                                        <SelectValue placeholder="" />
+                                    </SelectTrigger>
+                                    <SelectContent >
+                                        <SelectItem value="Highlight">Highlight</SelectItem>
+                                        <SelectItem value="Cat">Cat</SelectItem>
+                                        <SelectItem value="Inspiration">Inspiration</SelectItem>
+                                        <SelectItem value="Ganeral">Ganeral</SelectItem>
+                                    </SelectContent>
+                                </Select>
                             </div>
                         </div>
                     </form>
