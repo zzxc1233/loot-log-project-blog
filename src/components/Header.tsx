@@ -1,5 +1,3 @@
-import Article from "./ArticleSection"
-
 function Header() {
   return (
     <>
@@ -42,13 +40,7 @@ function Header() {
             </div>
           </div>
         </div>
-        <div className="hidden xl:inline">
-          <Article />
-        </div>
       </section>
-      <div className="inline xl:hidden">
-        <Article />
-      </div>
     </>
   )
 }
