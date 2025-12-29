@@ -20,6 +20,8 @@ const buttonVariants = cva(
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
         article: "text-body text-brown-400 rounded-lg px-5 py-3 hover:bg-brown-300",
+        login:"text-body text-brown-600 bg-white py-xs px-4xl border rounded-[999px]",
+        signup:"text-body text-white bg-brown-600 py-xs px-4xl border rounded-[999px]",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
