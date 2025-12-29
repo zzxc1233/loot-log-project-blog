@@ -1,6 +1,6 @@
 import { Search } from 'lucide-react';
 import { ChevronDown } from 'lucide-react';
-import { Button } from './ui/button';
+import { Button } from './ui/Button';
 
 function Article() {
     return (
@@ -14,10 +14,10 @@ function Article() {
                         <div className='hidden xl:inline '>
 
                             <div className='gap-2 flex'>
-                                <button className='text-body text-brown-400 border rounded-lg px-5 py-3 hover:bg-brown-300'>Highlight</button>
-                                <button className='text-body text-brown-400 border rounded-lg px-5 py-3 hover:bg-brown-300'>Cat</button>
-                                <button className='text-body text-brown-400 border rounded-lg px-5 py-3 hover:bg-brown-300'>Inspiration</button>
-                                <button className='text-body text-brown-400 border rounded-lg px-5 py-3 hover:bg-brown-300'>Ganeral</button>
+                                <Button variant="article">Highlight</Button>
+                                <Button variant="article">Cat</Button>
+                                <Button variant="article">Inspiration</Button>
+                                <Button variant="article">Ganeral</Button>
                             </div>
 
                         </div>
