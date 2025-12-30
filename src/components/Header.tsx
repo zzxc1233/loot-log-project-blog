@@ -6,7 +6,7 @@ function Header() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 xl:gap-16 items-center">
             <article className="space-y-6 xl:flex:col xl:items-end gap-4 xl:gap-6">
               <h1 className="text-headline-2 text-brown-600 text-center xl:text-right">
-                Stay <span className="hidden xl:inline"><br /></span>Informed, <span className="hidden xl:inline"><br /></span>Stay Inspired
+                Stay <span className="hidden xl:inline"><br /></span>Informed, <span className="inline xl:hidden"><br /></span>Stay Inspired
               </h1>
               <p className="text-body text-brown-400 text-center gap-16 xl:text-right">
                 Discover a World of Knowledge at Your Fingertips. Your Daily Dose of Inspiration and information.
