@@ -2,8 +2,8 @@ type BlogCardUIProps = {
     img: string;
     alt: string;
     category: string;
-    header: string;
-    content: string;
+    title: string;
+    description: string;
     imgAuthor: string;
     author: string;
     date: string;
@@ -13,8 +13,8 @@ export function BlogCardUI({
     img,
     alt,
     category,
-    header,
-    content,
+    title,
+    description,
     imgAuthor,
     author,
     date,
@@ -33,11 +33,11 @@ export function BlogCardUI({
                     </div>
                     <a href="#">
                         <h2 className="text-start font-bold text-xl mb-2 line-clamp-2 hover:underline">
-                            {header}
+                            {title}
                         </h2>
                     </a>
                     <p className="text-muted-foreground text-sm mb-4 grow line-clamp-3">
-                        {content}
+                        {description}
                     </p>
                     <div className="flex items-center text-sm">
                         <img className="w-8 h-8 rounded-full mr-2" src={imgAuthor} alt={author} />

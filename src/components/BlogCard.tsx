@@ -3,66 +3,72 @@ import { Button } from "./ui/button";
 
 const cards = [
     {
+        id: 1,
         img: "https://res.cloudinary.com/dcbpjtd1r/image/upload/v1728449771/my-blog-post/e739huvlalbfz9eynysc.jpg",
         alt: "The Art of Mindfulness: Finding Peace in a Busy World",
         category: "General",
-        header: "The Art of Mindfulness: Finding Peace in a Busy World",
-        content:
+        title: "The Art of Mindfulness: Finding Peace in a Busy World",
+        description:
             "Discover the transformative power of mindfulness and how it can help you navigate the challenges of modern life with greater ease and contentment.",
         imgAuthor: "https://res.cloudinary.com/dcbpjtd1r/image/upload/v1728449784/my-blog-post/xgfy0xnvyemkklcqodkg.jpg",
         author: "Thompson P.",
         date: "11 September 2024",
     },
     {
+        id: 2,
         img:"https://res.cloudinary.com/dcbpjtd1r/image/upload/v1728449771/my-blog-post/gsutzgam24abrvgee9r4.jpg",
         alt: "Understanding Cat Behavior: Why Your Feline Friend Acts the Way They Do",
         category: "Cat",
-        header: "The Secret Language of Cats: Decoding Feline Communication",
-        content:
+        title: "The Secret Language of Cats: Decoding Feline Communication",
+        description:
             "Unravel the mysteries of cat communication and learn how to better understand your feline friend's needs and desires.",
         imgAuthor: "https://res.cloudinary.com/dcbpjtd1r/image/upload/v1728449784/my-blog-post/xgfy0xnvyemkklcqodkg.jpg",
         author: "Thompson P.",
         date: "21 August 2024",
     },
     {
+        id: 3,
         img: "https://res.cloudinary.com/dcbpjtd1r/image/upload/v1728449771/my-blog-post/zzye4nxfm3pmh81z7hni.jpg",
         alt: "Understanding Cat Behavior: Why Your Feline Friend Acts the Way They Do",
         category: "Inspiration",
-        header: "Embracing Change: How to Thrive in Times of Transition",
-        content:
+        title: "Embracing Change: How to Thrive in Times of Transition",
+        description:
             "Learn powerful strategies to navigate life's changes with grace and emerge stronger on the other side.",
         imgAuthor: "https://res.cloudinary.com/dcbpjtd1r/image/upload/v1728449784/my-blog-post/xgfy0xnvyemkklcqodkg.jpg",
         author: "Thompson P.",
         date: "23 March 2024",
     },
     {
+        id: 4,
         img: "https://res.cloudinary.com/dcbpjtd1r/image/upload/v1728449771/my-blog-post/e0haxst38li4g8i0vpsr.jpg",
         alt: "Understanding Cat Behavior: Why Your Feline Friend Acts the Way They Do",
         category: "General",
-        header: "The Future of Work: Adapting to a Digital-First Economy",
-        content:
+        title: "The Future of Work: Adapting to a Digital-First Economy",
+        description:
             "Explore how technology is reshaping the workplace and learn skills to succeed in the evolving job market.",
         imgAuthor: "https://res.cloudinary.com/dcbpjtd1r/image/upload/v1728449784/my-blog-post/xgfy0xnvyemkklcqodkg.jpg",
         author: "Thompson P.",
         date: "23 May 2024",
     },
     {
+        id: 5,
         img: "https://res.cloudinary.com/dcbpjtd1r/image/upload/v1728449771/my-blog-post/g8qpepvgnz6gioylyhrz.jpg",
         alt: "Understanding Cat Behavior: Why Your Feline Friend Acts the Way They Do",
         category: "Inspiration",
-        header: "The Power of Habits: Small Changes, Big Results",
-        content:
+        title: "The Power of Habits: Small Changes, Big Results",
+        description:
             "Discover how small, consistent habits can lead to significant personal and professional growth over time.",
         imgAuthor: "https://res.cloudinary.com/dcbpjtd1r/image/upload/v1728449784/my-blog-post/xgfy0xnvyemkklcqodkg.jpg",
         author: "Thompson P.",
         date: "23 June 2024",
     },
     {
+        id: 6,
         img: "https://res.cloudinary.com/dcbpjtd1r/image/upload/v1728449771/my-blog-post/koydfh6jpmzhtxvwein3.jpg",
         alt: "Understanding Cat Behavior: Why Your Feline Friend Acts the Way They Do",
         category: "Cat",
-        header: "Cat Nutrition: A Guide to Feeding Your Feline Friend",
-        content:
+        title: "Cat Nutrition: A Guide to Feeding Your Feline Friend",
+        description:
             "Learn about the nutritional needs of cats and how to provide a balanced diet for optimal health and longevity.",
         imgAuthor: "https://res.cloudinary.com/dcbpjtd1r/image/upload/v1728449784/my-blog-post/xgfy0xnvyemkklcqodkg.jpg",
         author: "Thompson P.",
