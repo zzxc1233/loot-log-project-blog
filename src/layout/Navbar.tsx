@@ -1,6 +1,6 @@
 import logoHH from "../img/logo-hh.png"
 import { Menu } from 'lucide-react';
-import { Button } from "./ui/button";
+import { Button } from "../components/ui/button";
 
 function NavBar() {
     return (
