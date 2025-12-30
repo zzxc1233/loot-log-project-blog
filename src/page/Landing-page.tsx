@@ -5,10 +5,12 @@ import { BlogCard } from "@/components/BlogCard"
 function HeroSection() {
     return (
         <>
-            <Header />
-            <Article className="hidden xl:inline" />
-            <Article className="inline xl:hidden" />
-            <BlogCard />
+            <section className="xl:px-30 xl:py-14">
+                <Header />
+                <Article className="hidden xl:inline" />
+                <Article className="inline xl:hidden" />
+                <BlogCard />
+            </section>
         </>
     )
 }
