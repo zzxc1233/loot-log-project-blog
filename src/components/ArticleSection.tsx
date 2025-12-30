@@ -33,7 +33,7 @@ function Article() {
                             <div className="relative">
                                 <Input className="border rounded-lg border-brown-300 bg-white px-4 py-3 text-body w-full min-h-12 xl:w-sm" placeholder='Search' />
                                 
-                                <Search className="absolute right-1/30 top-2/7 text-brown-400" />
+                                <Search className="absolute right-1/30 top-1/2 -translate-1/2" />
                             </div>
                         </div>
                         <div className="xl:hidden flex flex-col gap-2 py-3">
@@ -41,7 +41,7 @@ function Article() {
                             <div className="relative">
                                 <Select>
                                     <SelectTrigger className="border rounded-lg border-brown-300 bg-white px-4 py-3 text-body text-brown-400 w-full min-h-12">
-                                        <SelectValue placeholder="" />
+                                        <SelectValue placeholder="General" />
                                     </SelectTrigger>
                                     <SelectContent >
                                         <SelectItem value="Highlight">Highlight</SelectItem>
