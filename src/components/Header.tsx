@@ -2,7 +2,7 @@ function Header() {
   return (
     <>
       
-        <div className="max-w-7xl mx-auto">
+        <div className="min-h-screen bg-brown-100 py-10 px-4 xl:px-30 xl:py-15">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 xl:gap-16 items-center">
             <article className="space-y-6 xl:flex:col xl:items-end gap-4 xl:gap-6">
               <h1 className="text-headline-2 text-brown-600 text-center xl:text-right">

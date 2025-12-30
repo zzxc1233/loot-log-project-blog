@@ -1,13 +1,13 @@
 import './App.css'
-import NavBar from './components/Navbar'
-import HeroSection from './components/HeroSection'
-import Footer from './components/Footer'
+import NavBar from './layout/Navbar'
+import LandingPage from './page/Landing-page'
+import Footer from './layout/Footer'
 
 function App() {
   return (
     <>
       <NavBar />
-      <HeroSection />
+      <LandingPage />
       <Footer />
     </>
   )

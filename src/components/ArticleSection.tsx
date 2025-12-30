@@ -8,31 +8,33 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
+import { cn } from "@/lib/utils";
 
-function Article() {
+type ArticleProps = {
+    className?: string;
+};
+
+function Article({ className }: ArticleProps) {
     return (
         <>
-            <div className="flex:col">
+            <div className={cn("flex:col", className)}>
                 <div className="text-headline-3 p-4">
                     <p>Latest articles</p>
                 </div>
                 <div>
                     <form action="" className="bg-brown-200 p-4 xl:rounded-2xl xl:flex xl:justify-between items-center">
                         <div className='hidden xl:inline '>
-
                             <div className='gap-2 flex'>
                                 <Button variant="article">Highlight</Button>
                                 <Button variant="article">Cat</Button>
                                 <Button variant="article">Inspiration</Button>
                                 <Button variant="article">Ganeral</Button>
                             </div>
-
                         </div>
                         <div className="">
                             <label htmlFor="search-input" className='' ></label>
                             <div className="relative">
                                 <Input className="border rounded-lg border-brown-300 bg-white px-4 py-3 text-body w-full min-h-12 xl:w-sm" placeholder='Search' />
-                                
                                 <Search className="absolute right-1/30 top-1/2 -translate-1/2" />
                             </div>
                         </div>
