@@ -1,4 +1,5 @@
 import { BlogCardUI } from "./ui/BlogCardUI"
+import { Button } from "./ui/button";
 
 const cards = [
     {
@@ -58,6 +59,9 @@ export function BlogCard() {
                         <BlogCardUI {...card} />
                     </article>
                 ))}
+            </div>
+            <div className="flex justify-center pt-6">
+                <Button variant="link" size="xl">View more</Button>
             </div>
         </section>
     );
