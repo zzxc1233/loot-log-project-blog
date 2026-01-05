@@ -1,5 +1,5 @@
 import Header from "../components/Header"
-import Article from "../components/ArticleSection"
+import Article from "../components/ArticleSearch"
 import { BlogCard } from "@/components/BlogCard"
 
 function HeroSection() {
