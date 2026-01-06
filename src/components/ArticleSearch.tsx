@@ -28,7 +28,7 @@ function Article({ className }: ArticleProps) {
                                 <Button variant="article">Highlight</Button>
                                 <Button variant="article">Cat</Button>
                                 <Button variant="article">Inspiration</Button>
-                                <Button variant="article">Ganeral</Button>
+                                <Button variant="article">General</Button>
                             </div>
                         </div>
                         <div className="">
@@ -49,7 +49,7 @@ function Article({ className }: ArticleProps) {
                                         <SelectItem value="Highlight">Highlight</SelectItem>
                                         <SelectItem value="Cat">Cat</SelectItem>
                                         <SelectItem value="Inspiration">Inspiration</SelectItem>
-                                        <SelectItem value="Ganeral">Ganeral</SelectItem>
+                                        <SelectItem value="General">General</SelectItem>
                                     </SelectContent>
                                 </Select>
                             </div>
