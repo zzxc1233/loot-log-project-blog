@@ -1,4 +1,4 @@
-import logoHH from '../../assets/img/logo-HH.png'
+import logoHH from '../../assets/img/logo-hh.png'
 import { Menu } from 'lucide-react';
 import { Button } from "../ui/button";
 
