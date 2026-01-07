@@ -1,3 +1,4 @@
+import { ARTICLE_CATEGORIES } from '@/constants/categories';
 import { Search } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
@@ -23,13 +24,12 @@ function Article({ className }: ArticleProps) {
                 </div>
                 <div>
                     <form action="" className="bg-brown-200 p-4 xl:rounded-2xl xl:flex xl:justify-between items-center">
-                        <div className='hidden xl:inline '>
-                            <div className='gap-2 flex'>
-                                <Button variant="article">Highlight</Button>
-                                <Button variant="article">Cat</Button>
-                                <Button variant="article">Inspiration</Button>
-                                <Button variant="article">General</Button>
-                            </div>
+                        <div className='hidden xl:flex gap-2'>
+                            {ARTICLE_CATEGORIES.map((categorie) => (
+                                <Button key={categorie.value} variant="article">
+                                    {categorie.label}
+                                </Button>
+                            ))}
                         </div>
                         <div className="">
                             <label htmlFor="search-input" className='' ></label>
@@ -45,11 +45,12 @@ function Article({ className }: ArticleProps) {
                                     <SelectTrigger className="border rounded-lg border-brown-300 bg-white px-4 py-3 text-body text-brown-400 w-full min-h-12">
                                         <SelectValue placeholder="General" />
                                     </SelectTrigger>
-                                    <SelectContent >
-                                        <SelectItem value="Highlight">Highlight</SelectItem>
-                                        <SelectItem value="Cat">Cat</SelectItem>
-                                        <SelectItem value="Inspiration">Inspiration</SelectItem>
-                                        <SelectItem value="General">General</SelectItem>
+                                    <SelectContent>
+                                        {ARTICLE_CATEGORIES.map((categorie) => (
+                                            <SelectItem key={categorie.value} value={categorie.value}>
+                                                {categorie.label}
+                                            </SelectItem>
+                                        ))}
                                     </SelectContent>
                                 </Select>
                             </div>
