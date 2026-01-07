@@ -1,6 +1,6 @@
 import Header from "../components/Header"
-import Article from "../components/ArticleSearch"
-import { BlogCard } from "@/components/BlogCard"
+import Article from "../components/blog/ArticleSearch"
+import { BlogCard } from "@/components/blog/BlogCard"
 
 function HeroSection() {
     return (

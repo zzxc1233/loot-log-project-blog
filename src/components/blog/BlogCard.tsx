@@ -1,6 +1,6 @@
-import { BlogCardUI } from "./ui/BlogCardUI"
-import { Button } from "./ui/button";
-import { cards } from "./data/BlogPost";
+import { BlogCardUI } from "./BlogCardUI"
+import { Button } from "../ui/button";
+import { cards } from "../../data/BlogPost";
 
 
 export function BlogCard() {

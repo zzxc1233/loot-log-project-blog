@@ -1,8 +1,8 @@
-import logoHH from "../img/logo-hh.png"
+import logoHH from '../../assets/img/logo-HH.png'
 import { Menu } from 'lucide-react';
 import { Button } from "../ui/button";
 
-function NavBar() {
+function Navbar() {
     return (
         <nav className='flex justify-between items-center py-3 px-6 border border-brown-300 xl:px-30'>
             <img src={logoHH} alt="logo-HH" />
@@ -15,4 +15,4 @@ function NavBar() {
     )
 }
 
-export default NavBar
+export default Navbar

@@ -1,4 +1,4 @@
-import GoogleBlack from "../img/Google_black.png"
+import GoogleBlack from "../../assets/img/Google_black.png"
 import { Button } from "@/components/ui/button";
 
 
