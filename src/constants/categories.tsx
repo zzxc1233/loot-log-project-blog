@@ -1,6 +1,6 @@
 export const ARTICLE_CATEGORIES = [
-    { label: "Highlight", value: "highlight" },
-    { label: "Cat", value: "cat" },
-    { label: "Inspiration", value: "inspiration" },
-    { label: "General", value: "general" },
+    { label: "Highlight", value: "Highlight" },
+    { label: "Cat", value: "Cat" },
+    { label: "Inspiration", value: "Inspiration" },
+    { label: "General", value: "General" },
     ];

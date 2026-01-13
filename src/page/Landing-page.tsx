@@ -7,8 +7,7 @@ function HeroSection() {
         <>
             <section className="xl:px-30 xl:py-14">
                 <Header />
-                <Article className="hidden xl:inline" />
-                <Article className="inline xl:hidden" />
+                <Article />
                 <BlogCard />
             </section>
         </>
