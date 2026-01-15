@@ -1,5 +1,4 @@
 type BlogCardUIProps = {
-  id: string;
   image: string;
   alt: string;
   category: string;
@@ -8,12 +7,9 @@ type BlogCardUIProps = {
   imgAuthor: string;
   author: string;
   date: string;
-  likes: string;
-  content: string;
 };
 
 export function BlogCardUI({
-  id,
   image,
   alt,
   category,
@@ -22,8 +18,6 @@ export function BlogCardUI({
   imgAuthor,
   author,
   date,
-  likes,
-  content,
 }: BlogCardUIProps) {
   return (
     <>
