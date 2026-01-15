@@ -1,19 +1,19 @@
-import Header from "../components/Header"
-import Article from "../components/blog/ArticleSearch"
-import { BlogCard } from "@/components/blog/BlogCard"
+import Header from "../components/Header";
+import Article from "../components/blog/ArticleSearch";
+import { BlogCard } from "@/components/blog/BlogCard";
+import { useState } from "react";
 
 function HeroSection() {
-    return (
-        <>
-            <section className="xl:px-30 xl:py-14">
-                <Header />
-                <Article className="hidden xl:inline" />
-                <Article className="inline xl:hidden" />
-                <BlogCard />
-            </section>
-        </>
-    )
+  const [selectedCategory, setSelectedCategory] = useState("Highlight");
+  return (
+    <>
+      <section className="xl:px-30 xl:py-14 bg-midnight-900 min-h-screen">
+        <Header />
+        <Article selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+        <BlogCard category={selectedCategory} />
+      </section>
+    </>
+  );
 }
 
-
-export default HeroSection
+export default HeroSection;
