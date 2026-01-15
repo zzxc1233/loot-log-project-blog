@@ -1,5 +1,6 @@
 type BlogCardUIProps = {
-  img: string;
+  id: string;
+  image: string;
   alt: string;
   category: string;
   title: string;
@@ -7,10 +8,13 @@ type BlogCardUIProps = {
   imgAuthor: string;
   author: string;
   date: string;
+  likes: string;
+  content: string;
 };
 
 export function BlogCardUI({
-  img,
+  id,
+  image,
   alt,
   category,
   title,
@@ -18,14 +22,16 @@ export function BlogCardUI({
   imgAuthor,
   author,
   date,
+  likes,
+  content,
 }: BlogCardUIProps) {
   return (
     <>
       <div className="flex flex-col gap-4 p-4 bg-midnight-800 border border-gold-400/30 rounded-xl hover:shadow-[0_0_25px_rgba(212,175,55,0.2)] transition-shadow">
-        <a href="#" className="relative h-[212px] sm:h-[360px]">
+        <a href="#" className="relative h-53 sm:h-90">
           <img
             className="w-full h-full object-cover rounded-md"
-            src={img}
+            src={image}
             alt={alt}
           />
         </a>
@@ -51,7 +57,13 @@ export function BlogCardUI({
             />
             <span>{author}</span>
             <span className="mx-2 text-gold-400/50">|</span>
-            <span>{date}</span>
+            <span>
+              {new Date(date).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              })}
+            </span>
           </div>
         </div>
       </div>

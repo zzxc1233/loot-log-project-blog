@@ -1,5 +1,4 @@
 import { ARTICLE_CATEGORIES } from "@/constants/categories";
-import { useState } from "react";
 import { Search } from "lucide-react";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
@@ -14,10 +13,11 @@ import { cn } from "@/lib/utils";
 
 type ArticleProps = {
   className?: string;
+  selectedCategory: string;
+  setSelectedCategory: (category: string) => void;
 };
 
-function Article({ className }: ArticleProps) {
-  const [selectedCategory, setSelectedCategory] = useState("Highlight");
+function Article({ className, selectedCategory, setSelectedCategory }: ArticleProps) {
   const isActive = (category: string) => selectedCategory === category;
   return (
     <>
