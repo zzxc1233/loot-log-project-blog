@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 type BlogCardUIProps = {
   image: string;
   alt: string;
@@ -7,6 +9,7 @@ type BlogCardUIProps = {
   imgAuthor: string;
   author: string;
   date: string;
+  id: string;
 };
 
 export function BlogCardUI({
@@ -18,28 +21,32 @@ export function BlogCardUI({
   imgAuthor,
   author,
   date,
+  id,
 }: BlogCardUIProps) {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="flex flex-col gap-4 p-4 bg-midnight-800 border border-gold-400/30 rounded-xl hover:shadow-[0_0_25px_rgba(212,175,55,0.2)] transition-shadow">
-        <a href="#" className="relative h-53 sm:h-90">
+        <div className="relative h-53 sm:h-90">
           <img
             className="w-full h-full object-cover rounded-md"
             src={image}
             alt={alt}
           />
-        </a>
+        </div>
         <div className="flex flex-col">
           <div className="flex">
-            <span className="bg-gold-400/20 rounded-full px-3 py-1 text-sm font-semibold text-gold-400 mb-2 border border-gold-400/30">
+            <span className="tag-category">
               {category}
             </span>
           </div>
-          <a href="#">
-            <h2 className="text-start font-bold text-xl mb-2 line-clamp-2 hover:underline text-gold-400">
+          <div>
+            <h2 className="cursor-pointer text-start font-bold text-xl mb-2 line-clamp-2 hover:underline text-gold-400"
+              onClick={() => navigate(`/blog-post/${id}`)}>
               {title}
             </h2>
-          </a>
+          </div>
           <p className="text-offwhite-400 text-sm mb-4 grow line-clamp-3">
             {description}
           </p>
