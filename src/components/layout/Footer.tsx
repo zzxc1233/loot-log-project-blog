@@ -1,7 +1,13 @@
 import GoogleBlack from "../../assets/img/Google_black.png";
+import { Github } from 'lucide-react';
+import { Linkedin } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 function Footer() {
+  
+    const navigate = useNavigate();
+
   return (
     <>
       <div className="px-4 py-10 bg-midnight-800 border-t border-gold-400/30 xl:flex xl:justify-between xl:items-center xl:px-30 xl:py-15">
@@ -9,7 +15,8 @@ function Footer() {
           <div className="text-body text-offwhite-200 xl:mt-1">
             Get in touch
           </div>
-
+          <Github className="text-offwhite-300"/>
+          <Linkedin className="text-offwhite-300"/>
           <img
             src={GoogleBlack}
             alt="GoogleBlackIcon"
@@ -17,7 +24,11 @@ function Footer() {
           />
         </div>
         <div className="flex justify-center">
-          <Button variant="link" size="xl">
+          <Button 
+            variant="link" 
+            size="xl"
+            onClick={() => navigate("/")}
+            >
             Home page
           </Button>
         </div>
