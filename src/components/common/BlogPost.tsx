@@ -1,4 +1,5 @@
 import ReactMarkdown from "react-markdown";
+import CommentSection from "./CommentSection";
 
 interface BlogPostProps {
     image: string;
@@ -49,6 +50,7 @@ function BlogPost({
                             <ReactMarkdown>{content}</ReactMarkdown>
                         </div>
                     </div>
+                    <CommentSection />
                 </div>
                 <div className="flex flex-col gap-4 w-1/4 pt-12">
                     <div className="flex flex-row gap-2 border-b border-offwhite-400 pb-2">
