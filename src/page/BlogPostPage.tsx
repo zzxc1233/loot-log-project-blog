@@ -1,28 +1,14 @@
 import { useParams } from "react-router-dom";
-import axios from "axios";
-import { useState, useEffect } from "react";
 import BlogPost from "../components/common/BlogPost";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
+import { useContext } from "react";
+import { DataByIdContext } from "../components/context/UseDataById";
 
 function BlogPostPage() {
+
+    const data = useContext(DataByIdContext);
     const params = useParams();
-    const [data, setData] = useState([]);
-
-    async function getPostData() {
-        try {
-            const response = await axios.get(
-                `https://blog-post-project-api.vercel.app/posts?${params.id}`,
-            );
-            setData(response.data.posts);
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    useEffect(() => {
-        getPostData();
-    }, []);
 
     return (
         <>
