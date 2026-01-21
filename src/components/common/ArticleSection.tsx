@@ -1,9 +1,10 @@
 import { ARTICLE_CATEGORIES } from "@/constants/categories";
-import { Search } from "lucide-react";
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
-import { useState, useEffect } from "react";
+import { SearchInput } from "./SearchInput";
+
 import axios from "axios";
+
+import { Button } from "../ui/button";
+import { useState, useEffect } from "react";
 import {
     Select,
     SelectContent,
@@ -116,18 +117,7 @@ function ArticleSection({ className }: ArticleSectionProps) {
                         </div>
 
                         {/* Search Input */}
-                        <div className="">
-                            <label htmlFor="search-input" className=""></label>
-                            <div className="relative">
-                                <Input
-                                    className="border rounded-lg border-gold-400/30 bg-midnight-800 px-4 py-3 text-body w-full min-h-12 xl:w-sm text-offwhite-200 placeholder:text-offwhite-400/60"
-                                    placeholder="Search"
-                                />
-                                <button>
-                                    <Search className="absolute right-1/30 top-1/2 -translate-1/2 text-gold-400" />
-                                </button>
-                            </div>
-                        </div>
+                        <SearchInput />
 
                         {/* Category Dropdown */}
                         <div className="xl:hidden flex flex-col gap-2 py-3">
