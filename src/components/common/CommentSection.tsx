@@ -1,4 +1,4 @@
-import { Heart, Facebook, Linkedin, Twitter, Copy, X, Link } from 'lucide-react';
+import { Heart, Facebook, Linkedin, Twitter, Copy, X } from 'lucide-react';
 import { Button } from '../ui/button';
 import { useContext, useState } from 'react';
 import { DataByIdContext } from '../context/UseDataById';
