@@ -30,9 +30,10 @@ export function BlogCardUI({
       <div className="flex flex-col gap-4 p-4 bg-midnight-800 border border-gold-400/30 rounded-xl hover:shadow-[0_0_25px_rgba(212,175,55,0.2)] transition-shadow">
         <div className="relative h-53 sm:h-90">
           <img
-            className="w-full h-full object-cover rounded-md"
+            className="w-full h-full object-cover rounded-md cursor-pointer"
             src={image}
             alt={alt}
+            onClick={() => navigate(`/blog-post/${id}`)}
           />
         </div>
         <div className="flex flex-col">
