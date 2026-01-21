@@ -2,9 +2,9 @@ function Header() {
   return (
     <>
       <div className="py-10 px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 xl:gap-16 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-10 xl:gap-16 items-center">
           <article className="space-y-6 xl:flex:col xl:items-end gap-4 xl:gap-6">
-            <h1 className="text-headline-2 text-gold-gradient text-center xl:text-right">
+            <h1 className="text-headline-3 sm:text-headline-2 text-gold-gradient text-center xl:text-right">
               Stay{" "}
               <span className="hidden xl:inline">
                 <br />
@@ -15,7 +15,7 @@ function Header() {
               </span>
               Stay Inspired
             </h1>
-            <p className="text-body text-offwhite-300 text-center gap-16 xl:text-right">
+            <p className="text-body-3 sm:text-body text-offwhite-300 text-center gap-16 xl:text-right">
               Discover a World of Knowledge at Your Fingertips. Your Daily Dose
               of Inspiration and information.
             </p>
@@ -25,7 +25,7 @@ function Header() {
             <img
               src="https://res.cloudinary.com/dcbpjtd1r/image/upload/v1728449784/my-blog-post/xgfy0xnvyemkklcqodkg.jpg"
               alt="Man with cat in autumn forest"
-              className="w-full max-w-xs xl:max-w-none xl:w-sm h-[529px] rounded-2xl object-cover border border-gold-400/30 hover:shadow-[0_0_30px_rgba(212,175,55,0.3)] transition-shadow"
+              className="w-full max-w-xs sm:max-w-sm xl:max-w-none xl:w-sm h-80 sm:h-[450px] xl:h-[529px] rounded-2xl object-cover border border-gold-400/30 hover:shadow-[0_0_30px_rgba(212,175,55,0.3)] transition-shadow"
             />
           </div>
 

@@ -95,10 +95,10 @@ function ArticleSection({ className }: ArticleSectionProps) {
                 <div>
                     <form
                         action=""
-                        className="bg-midnight-700 border border-gold-400/20 p-4 xl:rounded-2xl xl:flex xl:justify-between items-center"
+                        className="bg-midnight-700 border border-gold-400/20 p-4 sm:rounded-2xl sm:flex sm:justify-between items-center rounded-2xl"
                     >
                         {/* Category Buttons */}
-                        <div className="hidden xl:flex gap-2">
+                        <div className="hidden sm:flex gap-2 flex-wrap">
                             {ARTICLE_CATEGORIES.map((categorie) => (
                                 <Button
                                     key={categorie.value}
@@ -120,7 +120,7 @@ function ArticleSection({ className }: ArticleSectionProps) {
                         <SearchInput />
 
                         {/* Category Dropdown */}
-                        <div className="xl:hidden flex flex-col gap-2 py-3">
+                        <div className="sm:hidden flex flex-col gap-2 py-3">
                             <label
                                 htmlFor="highlight-input"
                                 className="text-body text-offwhite-400"
@@ -150,8 +150,8 @@ function ArticleSection({ className }: ArticleSectionProps) {
             </div>
 
             {/* Blog Cards Section */}
-            <section className="py-6 px-4 xl:px-0">
-                <div className="grid gap-6 xl:grid-cols-2">
+            <section className="py-6 xl:px-0">
+                <div className="grid gap-4 sm:gap-6 sm:grid-cols-2">
                     {cards.map((card) => (
                         <article key={card.id} className="flex flex-col">
                             <BlogCardUI {...card} />
