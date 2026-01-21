@@ -35,23 +35,54 @@ type ArticleSectionProps = {
 function ArticleSection({ className }: ArticleSectionProps) {
     const [selectedCategory, setSelectedCategory] = useState<string>("Highlight");
     const [cards, setCards] = useState<Post[]>([]);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [page, setPage] = useState<number>(1);
+    const [hasMore, setHasMore] = useState<boolean>(true);
 
     const isActive = (category: string) => selectedCategory === category;
 
-    async function getCardsData() {
+    async function getCardsData(targetPage: number, category: string, isNewCategory: boolean = false) {
         try {
+            setIsLoading(true);
+            const categoryParam = category === "Highlight" ? "" : category;
+
             const response = await axios.get(
                 "https://blog-post-project-api.vercel.app/posts",
+                {
+                    params: {
+                        page: targetPage,
+                        limit: 6,
+                        category: categoryParam,
+                    },
+                }
             );
-            setCards(response.data.posts);
+
+            const { posts, totalPages, currentPage } = response.data;
+
+            if (isNewCategory) {
+                setCards(posts);
+            } else {
+                setCards((prev) => [...prev, ...posts]);
+            }
+            setHasMore(currentPage < totalPages);
+
         } catch (error) {
-            console.error(error);
+            console.error("Error fetching posts:", error);
+        } finally {
+            setIsLoading(false);
         }
     }
 
     useEffect(() => {
-        getCardsData();
-    }, []);
+        setPage(1);
+        getCardsData(1, selectedCategory, true);
+    }, [selectedCategory]);
+
+    const handleLoadMore = () => {
+        const nextPage = page + 1;
+        setPage(nextPage);
+        getCardsData(nextPage, selectedCategory, false);
+    };
 
     return (
         <>
@@ -131,20 +162,36 @@ function ArticleSection({ className }: ArticleSectionProps) {
             {/* Blog Cards Section */}
             <section className="py-6 px-4 xl:px-0">
                 <div className="grid gap-6 xl:grid-cols-2">
-                    {cards.map((card) => {
-                        if (card.category === selectedCategory) {
-                            return (
-                                <article key={card.id} className="flex flex-col">
-                                    <BlogCardUI {...card} />
-                                </article>
-                            );
-                        }
-                    })}
+                    {cards.map((card) => (
+                        <article key={card.id} className="flex flex-col">
+                            <BlogCardUI {...card} />
+                        </article>
+                    ))}
                 </div>
-                <div className="flex justify-center pt-6">
-                    <Button variant="link" size="xl">
-                        View more
-                    </Button>
+
+                <div className="flex flex-col items-center justify-center pt-10 gap-4">
+                    {isLoading && (
+                        <div className="text-gold-400 animate-pulse font-medium">
+                            Loading articles...
+                        </div>
+                    )}
+
+                    {!isLoading && hasMore && (
+                        <Button
+                            variant="link"
+                            size="xl"
+                            onClick={handleLoadMore}
+                            className="text-gold-400 hover:text-gold-500 underline"
+                        >
+                            View more
+                        </Button>
+                    )}
+
+                    {!hasMore && (
+                        <p className="text-offwhite-400 text-sm italic">
+                            You've seen all articles in this category.
+                        </p>
+                    )}
                 </div>
             </section>
         </>
