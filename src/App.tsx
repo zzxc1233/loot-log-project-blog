@@ -8,6 +8,7 @@ import { ValidationEmail } from './components/context/validationEmail'
 import { Toaster } from './components/ui/sonner'
 import SignupPage from './page/signup-page'
 import LoginPage from './page/login-page'
+import MemberManagement from './page/MemberManagement'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/blog-post/:id" element={<BlogPostPage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/member" element={<MemberManagement />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>
