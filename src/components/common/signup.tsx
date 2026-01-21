@@ -137,7 +137,7 @@ function SignUp() {
                             <CircleCheck className="text-green" size={96}/>
                             <p className="text-headline-4 sm:text-headline-3 font-semibold text-offwhite-200 text-center">Registration success</p>
                             <Button
-                                onClick={() => navigate("/")}
+                                onClick={() => navigate("/member")}
                                 className="w-full sm:w-2/3 m-auto bg-gold-600 rounded-2xl p-4"
                             >
                                 Continue
