@@ -29,8 +29,8 @@ function CommentSection() {
     return (
         <>
             {data
-                .filter((item: any) => item.id == params.id)
-                .map((item: any) => (
+                .filter((item) => String(item.id) === params.id)
+                .map((item) => (
                     <div key={item.id} className="flex flex-col gap-4">
                         <div className='flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 py-8 rounded-2xl'>
                             <Button variant="signup" className='flex items-center w-fit gap-2 px-4 py-1 rounded-2xl'>

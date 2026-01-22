@@ -18,7 +18,7 @@ function Login() {
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         let isError = false;
-        let newError = { ...error };
+        let newError = { username: "", password: "" };
 
         if (!username.trim()) {
             newError.username = "Username is required";
@@ -51,6 +51,7 @@ function Login() {
                                     {error.username && <p className="text-body-3 text-red-500">{error.username}</p>}
                                     <Input
                                         type="text"
+                                        id="username"
                                         placeholder="Username"
                                         className="mb-4"
                                         value={username}
@@ -63,6 +64,7 @@ function Login() {
                                     {error.password && <p className="text-body-3 text-red-500">{error.password}</p>}
                                     <Input
                                         type="password"
+                                        id="password"
                                         placeholder="Password"
                                         className="mb-4"
                                         value={password}

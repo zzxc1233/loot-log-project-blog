@@ -26,7 +26,7 @@ function SignUp() {
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         let isError = false;
-        let newError = { ...error };
+        let newError = { name: "", username: "", email: "", password: "" };
 
         if (!name.trim()) {
             newError.name = "Name is required";
@@ -70,6 +70,7 @@ function SignUp() {
                                     {error.name && <p className="text-body-3 text-red-500">{error.name}</p>}
                                     <Input
                                         type="text"
+                                        id="name"
                                         placeholder="Name"
                                         className="mb-4"
                                         value={name}
@@ -83,6 +84,7 @@ function SignUp() {
                                     {error.username && <p className="text-body-3 text-red-500">{error.username}</p>}
                                     <Input
                                         type="text"
+                                        id="username"
                                         placeholder="Username"
                                         className="mb-4"
                                         value={username}
@@ -95,6 +97,7 @@ function SignUp() {
                                     {error.email && <p className="text-body-3 text-red-500">{error.email}</p>}
                                     <Input
                                         type="email"
+                                        id="email"
                                         placeholder="Email"
                                         className="mb-4"
                                         value={email}
@@ -107,6 +110,7 @@ function SignUp() {
                                     {error.password && <p className="text-body-3 text-red-500">{error.password}</p>}
                                     <Input
                                         type="password"
+                                        id="password"
                                         placeholder="Password"
                                         className="mb-4"
                                         value={password}

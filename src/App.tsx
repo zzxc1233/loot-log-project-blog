@@ -12,9 +12,9 @@ import MemberManagement from './page/MemberManagement'
 
 function App() {
   return (
-    <DataById>
-      <ValidationEmail>
-        <BrowserRouter>
+    <BrowserRouter>
+      <DataById>
+        <ValidationEmail>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/blog-post/:id" element={<BlogPostPage />} />
@@ -23,10 +23,10 @@ function App() {
             <Route path="/member" element={<MemberManagement />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
-        </BrowserRouter>
+        </ValidationEmail>
         <Toaster />
-      </ValidationEmail>
-    </DataById>
+      </DataById>
+    </BrowserRouter>
   )
 }
 
