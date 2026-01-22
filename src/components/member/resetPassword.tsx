@@ -72,7 +72,6 @@ function ResetPassword() {
                     <Input
                         type="password"
                         placeholder="Enter current password"
-                        className="border-gold-400/30 bg-midnight-700 text-offwhite-200 px-4 py-3 rounded-lg placeholder:text-offwhite-400/50 focus:border-gold-400"
                         value={password}
                         onChange={(e) => {
                             setPassword(e.target.value);
@@ -87,7 +86,6 @@ function ResetPassword() {
                     <Input
                         type="password"
                         placeholder="Enter new password"
-                        className="border-gold-400/30 bg-midnight-700 text-offwhite-200 px-4 py-3 rounded-lg placeholder:text-offwhite-400/50 focus:border-gold-400"
                         value={newPassword}
                         onChange={(e) => {
                             setNewPassword(e.target.value);
@@ -102,7 +100,6 @@ function ResetPassword() {
                     <Input
                         type="password"
                         placeholder="Confirm new password"
-                        className="border-gold-400/30 bg-midnight-700 text-offwhite-200 px-4 py-3 rounded-lg placeholder:text-offwhite-400/50 focus:border-gold-400"
                         value={confirmNewPassword}
                         onChange={(e) => {
                             setConfirmNewPassword(e.target.value);
@@ -112,7 +109,7 @@ function ResetPassword() {
                 </div>
 
                 <Button
-                    className="w-fit bg-gold-600 hover:bg-gold-500 text-midnight-900 font-semibold px-10 py-2 rounded-full mt-2 cursor-pointer"
+                    className="w-full sm:w-fit"
                     onClick={handleClickPasswords}
                 >
                     Update Password

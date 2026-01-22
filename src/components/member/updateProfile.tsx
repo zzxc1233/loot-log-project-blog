@@ -50,7 +50,6 @@ function UpdateProfile({
                 </div>
                 <Button
                     variant="outline"
-                    className="border-gold-400/30 text-offwhite-200 hover:bg-midnight-700 hover:text-gold-400 px-6 cursor-pointer"
                 >
                     Upload profile picture
                 </Button>
@@ -67,9 +66,7 @@ function UpdateProfile({
                         onChange={(e) => {
                             setName(e.target.value);
                             if (error.name) setError({ ...error, name: "" });
-                        }}
-                        className="border-gold-400/30 bg-midnight-700 text-offwhite-200 px-4 py-3 rounded-lg focus:border-gold-400"
-                    />
+                        }}/>
                 </div>
 
                 <div className="flex flex-col gap-2">
@@ -82,7 +79,6 @@ function UpdateProfile({
                             setUsername(e.target.value);
                             if (error.username) setError({ ...error, username: "" });
                         }}
-                        className="border-gold-400/30 bg-midnight-700 text-offwhite-200 px-4 py-3 rounded-lg focus:border-gold-400"
                     />
                 </div>
 
@@ -92,7 +88,8 @@ function UpdateProfile({
                 </div>
 
                 <Button
-                    className="w-fit bg-gold-600 hover:bg-gold-500 text-midnight-900 font-semibold px-10 py-2 rounded-full mt-2 cursor-pointer"
+                    variant="default"
+                    className="w-full sm:w-1/3"
                     onClick={handleSave}
                 >
                     Save
