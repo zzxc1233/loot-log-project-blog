@@ -122,7 +122,8 @@ function SignUp() {
                                 </div>
                                 <Button
                                     type="submit"
-                                    className="w-full sm:w-1/3 m-auto bg-gold-600 rounded-2xl p-2"
+                                    variant="default"
+                                    className="w-full sm:w-1/3 m-auto"
                                 >
                                     Sign Up
                                 </Button>
@@ -142,7 +143,8 @@ function SignUp() {
                             <p className="text-headline-4 sm:text-headline-3 font-semibold text-offwhite-200 text-center">Registration success</p>
                             <Button
                                 onClick={() => navigate("/member")}
-                                className="w-full sm:w-2/3 m-auto bg-gold-600 rounded-2xl p-4"
+                                className="w-full sm:w-2/3 m-auto"
+                                variant="default"
                             >
                                 Continue
                             </Button>

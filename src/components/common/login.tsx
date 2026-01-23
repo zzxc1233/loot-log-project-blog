@@ -76,7 +76,8 @@ function Login() {
                                 </div>
                                 <Button
                                     type="submit"
-                                    className="w-full sm:w-1/3 m-auto bg-gold-600 rounded-2xl p-2"
+                                    className="w-full sm:w-1/3 m-auto"
+                                    variant="default"
                                 >
                                     Log In
                                 </Button>
@@ -96,7 +97,8 @@ function Login() {
                             <p className="text-headline-4 sm:text-headline-3 font-semibold text-offwhite-200 text-center">Login success</p>
                             <Button
                                 onClick={() => navigate("/member")}
-                                className="w-full sm:w-2/3 m-auto bg-gold-600 rounded-2xl p-4"
+                                className="w-full sm:w-2/3 m-auto"
+                                variant="default"
                             >
                                 Continue
                             </Button>
