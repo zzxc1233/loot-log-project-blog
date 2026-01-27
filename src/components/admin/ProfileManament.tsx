@@ -16,7 +16,11 @@ export default function ProfileManament() {
                     {/* profile */}
                     <div className="flex flex-col sm:flex-row items-center gap-4 h-28 sm:h-auto">
                         <img src="profile.png" alt="profile" className="w-16 h-16 sm:w-20 sm:h-20" />
-                        <Button className="w-full sm:w-auto">Upload profile picture</Button>
+                        <Button
+                            className="w-full sm:w-auto"
+                            variant="outline">
+                            Upload profile picture
+                        </Button>
                     </div>
 
                     {/* info */}
