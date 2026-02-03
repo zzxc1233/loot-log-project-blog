@@ -44,7 +44,7 @@ function BlogPost({
                         </div>
                     </div>
                     <div>
-                        <div className="text-headline-3 sm:text-headline-2 md:text-headline text-gold-gradient">{title}</div>
+                        <div className="text-headline-3 sm:text-headline-2 md:text-headline text-galactic-teal">{title}</div>
                         <div className="text-body-3 sm:text-body w-full text-offwhite-300">{description}</div>
                         <div className="markdown w-full text-offwhite-300 text-sm sm:text-base">
                             <ReactMarkdown>{content}</ReactMarkdown>

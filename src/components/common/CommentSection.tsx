@@ -57,11 +57,11 @@ function CommentSection() {
                         </div>
 
                         <div className='flex flex-col'>
-                            <p className="text-offwhite-300 text-body">Comments</p>
+                            <p className="text-silver-200 text-body">Comments</p>
                             <form action=""
                                 className='flex flex-col gap-4 py-4 '>
                                 <textarea
-                                    className="border rounded-2xl h-48 sm:h-72 text-offwhite-300 bg-transparent p-4 text-sm sm:text-base"
+                                    className="border border-white/10 rounded-2xl h-48 sm:h-72 text-silver-100 bg-space-800 p-4 text-sm sm:text-base focus:border-galactic-teal outline-none transition-all"
                                     placeholder='Add a comment'
                                     rows={4}
                                     cols={10}
@@ -78,8 +78,8 @@ function CommentSection() {
 
             {/* alert login */}
             <AlertDialog open={isLogin} onOpenChange={setIsLogin}>
-                <AlertDialogContent className="bg-midnight-800 rounded-md border border-gold-600 pt-16 pb-6 max-w-104 sm:max-w-lg flex flex-col items-center">
-                    <AlertDialogTitle className="text-xl sm:text-3xl font-semibold pb-2 text-center text-offwhite-300 px-4">
+                <AlertDialogContent className="bg-space-800 rounded-2xl border border-white/10 pt-16 pb-6 max-w-104 sm:max-w-lg flex flex-col items-center shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+                    <AlertDialogTitle className="text-xl sm:text-3xl font-semibold pb-2 text-center text-silver-100 px-4">
                         Create an account to continue
                     </AlertDialogTitle>
                     <Button
@@ -89,13 +89,13 @@ function CommentSection() {
                     >
                         Create account
                     </Button>
-                    <AlertDialogDescription className="flex flex-row gap-1 justify-center font-medium text-center pt-2 text-offwhite-300 text-sm sm:text-base">
+                    <AlertDialogDescription className="flex flex-row gap-1 justify-center font-medium text-center pt-2 text-silver-300 text-sm sm:text-base">
                         Already have an account?
-                        <span className="text-gold-400 cursor-pointer hover:underline"
+                        <span className="text-galactic-teal cursor-pointer hover:underline font-semibold"
                             onClick={() => navigate("/login")}
                         > Log In</span>
                     </AlertDialogDescription>
-                    <AlertDialogCancel className="absolute right-4 top-2 sm:top-4 p-1 border-none">
+                    <AlertDialogCancel className="absolute right-4 top-2 sm:top-4 p-1 border-none text-silver-400 hover:text-silver-100">
                         <X className="h-6 w-6" />
                     </AlertDialogCancel>
                 </AlertDialogContent>

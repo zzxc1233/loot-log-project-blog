@@ -10,6 +10,7 @@ import SignupPage from './page/signup-page'
 import LoginPage from './page/login-page'
 import MemberManagement from './page/MemberManagement'
 import AdminPage from './page/AdminPage'
+import AuthPage from './page/AuthPage'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/member" element={<MemberManagement />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="*" element={<PageNotFound />} />
+            <Route path="/auth" element={<AuthPage />} />
           </Routes>
         </ValidationEmail>
         <Toaster />

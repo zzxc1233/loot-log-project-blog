@@ -139,7 +139,7 @@ function SignUp() {
                         </>
                     ) : (
                         <div className="flex flex-col gap-6 sm:gap-8 justify-center items-center py-4 px-4">
-                            <CircleCheck className="text-green" size={96}/>
+                            <CircleCheck className="text-green" size={96} />
                             <p className="text-headline-4 sm:text-headline-3 font-semibold text-offwhite-200 text-center">Registration success</p>
                             <Button
                                 onClick={() => navigate("/member")}

@@ -7,44 +7,63 @@
   /* Font Family */
   --font-family-sans: "Poppins", sans-serif;
 
-  /* Luxury Gold Colors */
-  --color-gold-600: #8b7025;
-  --color-gold-500: #c5a028;
-  --color-gold-400: #d4af37;
-  --color-gold-300: #e5c76b;
-  --color-gold-200: #f0dc9a;
-  --color-gold-100: #fcf5e3;
+  /* Midnight Galactic - Deep Space Colors */
+  --color-space-900: #0b0d17;
+  --color-space-800: #0e1121;
+  --color-space-700: #12152b;
+  --color-space-600: #1a1a2e;
+  --color-space-500: #16213e;
+  --color-space-400: #1f2b4d;
+  --color-space-300: #2a3a5c;
 
-  /* Midnight Black/Charcoal Colors */
-  --color-midnight-900: #0a0a0a;
-  --color-midnight-800: #0d0d0d;
-  --color-midnight-700: #121212;
-  --color-midnight-600: #1a1a1a;
-  --color-midnight-500: #222222;
-  --color-midnight-400: #2d2d2d;
-  --color-midnight-300: #3d3d3d;
+  /* Galactic Accent Colors */
+  --color-galactic-teal: #4ecca3;
+  --color-galactic-blue: #00d2ff;
+  --color-galactic-lavender: #e2d5f3;
+  --color-galactic-purple: #9d4edd;
 
-  /* Off-White Colors */
-  --color-offwhite-100: #fafaf8;
-  --color-offwhite-200: #f5f5f0;
-  --color-offwhite-300: #e8e6e3;
-  --color-offwhite-400: #d1cfc9;
+  /* Off-White/Silver Colors */
+  --color-silver-100: #e0e0e0;
+  --color-silver-200: #c8c8c8;
+  --color-silver-300: #a0a0a0;
+  --color-silver-400: #808080;
 
-  /* Legacy Brown Colors (kept for compatibility) */
-  --color-brown-600: #26231e;
-  --color-brown-500: #43403b;
-  --color-brown-400: #75716b;
-  --color-brown-300: #dad6d1;
-  --color-brown-200: #efeeeb;
-  --color-brown-100: #f9f8f6;
+  /* Legacy aliases for compatibility */
+  --color-midnight-900: #0b0d17;
+  --color-midnight-800: #0e1121;
+  --color-midnight-700: #12152b;
+  --color-midnight-600: #1a1a2e;
+  --color-midnight-500: #16213e;
+  --color-midnight-400: #1f2b4d;
+  --color-midnight-300: #2a3a5c;
+
+  --color-gold-600: #3ba899;
+  --color-gold-500: #45c4b0;
+  --color-gold-400: #4ecca3;
+  --color-gold-300: #7eddbe;
+  --color-gold-200: #a8ecd6;
+  --color-gold-100: #d4f5ec;
+
+  --color-offwhite-100: #e0e0e0;
+  --color-offwhite-200: #c8c8c8;
+  --color-offwhite-300: #a0a0a0;
+  --color-offwhite-400: #808080;
+
+  /* Legacy Brown Colors (remapped) */
+  --color-brown-600: #1a1a2e;
+  --color-brown-500: #2a3a5c;
+  --color-brown-400: #3d4f70;
+  --color-brown-300: #c8c8c8;
+  --color-brown-200: #e0e0e0;
+  --color-brown-100: #f0f0f0;
   --color-white: #ffffff;
   --color-gray-100: #f5f5f5;
 
-  /* Brand Colors */
-  --color-orange: #f2b68c;
-  --color-green: #12b279;
-  --color-green-light: #d7f2e9;
-  --color-red: #eb5164;
+  /* Brand Colors (remapped to galactic) */
+  --color-orange: #e2d5f3;
+  --color-green: #4ecca3;
+  --color-green-light: #d4f5ec;
+  --color-red: #ff6b9d;
 
   /* Typography - Headline */
   --font-size-headline: 52px;

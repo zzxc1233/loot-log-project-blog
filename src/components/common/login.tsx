@@ -37,9 +37,9 @@ function Login() {
 
     return (
         <>
-            <div className="bg-midnight-900 min-h-screen flex flex-col justify-center items-center px-4 sm:px-0">
-                <div className="flex flex-col gap-4 justify-center items-center py-8 sm:py-12 bg-midnight-800 w-full sm:w-3/4 md:w-1/2 mx-auto rounded-2xl border border-gold-400/30">
-                    <p className="text-headline-3 sm:text-headline font-semibold text-offwhite-200 pb-2 sm:pb-4">Log In</p>
+            <div className="bg-space-900 min-h-screen flex flex-col justify-center items-center px-4 sm:px-0">
+                <div className="flex flex-col gap-4 justify-center items-center py-8 sm:py-12 bg-space-800 w-full sm:w-3/4 md:w-1/2 mx-auto rounded-2xl border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+                    <p className="text-headline-3 sm:text-headline font-semibold text-silver-100 pb-2 sm:pb-4">Log In</p>
                     {!submit ? (
                         <>
                             <form
@@ -47,7 +47,7 @@ function Login() {
                                 className="flex flex-col gap-4 sm:gap-6 w-11/12 sm:w-2/3"
                             >
                                 <div className="flex flex-col gap-2">
-                                    <label htmlFor="username" className="text-offwhite-200">Username</label>
+                                    <label htmlFor="username" className="text-silver-200 font-medium">Username</label>
                                     {error.username && <p className="text-body-3 text-red-500">{error.username}</p>}
                                     <Input
                                         type="text"
@@ -60,7 +60,7 @@ function Login() {
                                             if (error.username) setError({ ...error, username: "" })
                                         }}
                                     />
-                                    <label htmlFor="password" className="text-offwhite-200">Password</label>
+                                    <label htmlFor="password" className="text-silver-200 font-medium">Password</label>
                                     {error.password && <p className="text-body-3 text-red-500">{error.password}</p>}
                                     <Input
                                         type="password"
@@ -84,8 +84,8 @@ function Login() {
                             </form>
 
                             <div>
-                                <p className="text-body-3 sm:text-body-2 text-offwhite-200">Don't have an account ?
-                                    <span className="text-gold-400 cursor-pointer hover:underline"
+                                <p className="text-body-3 sm:text-body-2 text-silver-300">Don't have an account ?
+                                    <span className="text-galactic-teal cursor-pointer hover:underline font-semibold"
                                         onClick={() => navigate("/signup")}
                                     > Sign Up</span>
                                 </p>
@@ -93,8 +93,8 @@ function Login() {
                         </>
                     ) : (
                         <div className="flex flex-col gap-6 sm:gap-8 justify-center items-center py-4 px-4">
-                            <CircleCheck className="text-green" size={96}/>
-                            <p className="text-headline-4 sm:text-headline-3 font-semibold text-offwhite-200 text-center">Login success</p>
+                            <CircleCheck className="text-galactic-teal" size={96} />
+                            <p className="text-headline-4 sm:text-headline-3 font-semibold text-silver-100 text-center">Login success</p>
                             <Button
                                 onClick={() => navigate("/member")}
                                 className="w-full sm:w-2/3 m-auto"

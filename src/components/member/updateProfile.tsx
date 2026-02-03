@@ -66,7 +66,7 @@ function UpdateProfile({
                         onChange={(e) => {
                             setName(e.target.value);
                             if (error.name) setError({ ...error, name: "" });
-                        }}/>
+                        }} />
                 </div>
 
                 <div className="flex flex-col gap-2">

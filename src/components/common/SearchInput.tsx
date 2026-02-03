@@ -29,19 +29,15 @@ export function SearchInput() {
     return (
         <>
             <div className="flex flex-col gap-2 relative">
-                <div>
-                    <label htmlFor="search-input"></label>
-                    <div className="">
-                        <Input
-                            className="border rounded-lg border-gold-400/30 bg-midnight-800 px-4 py-3 text-body w-full min-h-12 xl:w-sm text-offwhite-200 placeholder:text-offwhite-400/60"
-                            placeholder="Search"
-                            value={search}
-                            onChange={(e) => setSearch(e.target.value)}
-                        />
-                        <button className="absolute right-1/30 top-1/2 -translate-1/2 text-gold-400">
-                            <Search />
-                        </button>
-                    </div>
+                <div className="relative group w-full sm:w-80">
+                    <Input
+                        type="text"
+                        placeholder="Search articles..."
+                        className="pl-10 pr-4 py-2 bg-space-700 border-white/10 text-silver-100 placeholder:text-silver-400/50 rounded-full focus:ring-galactic-teal/30 focus:border-galactic-teal transition-all"
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                    />
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-silver-400 group-focus-within:text-galactic-teal transition-colors" />
                 </div>
 
                 {filteredData.length > 0 && (

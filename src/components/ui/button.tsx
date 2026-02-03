@@ -10,21 +10,21 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-gold-400 text-midnight-900 hover:bg-gold-500 hover:shadow-[0_0_20px_rgba(212,175,55,0.4)]",
+          "bg-galactic-teal text-space-900 hover:bg-galactic-teal/90 hover:shadow-[0_0_20px_rgba(78,204,163,0.4)]",
         destructive:
           "bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
         outline:
-          "border border-gold-400 bg-transparent text-gold-400 shadow-xs hover:bg-gold-400/10 hover:shadow-[0_0_15px_rgba(212,175,55,0.3)]",
+          "border border-galactic-teal bg-transparent text-galactic-teal shadow-xs hover:bg-galactic-teal/10 hover:shadow-[0_0_15px_rgba(78,204,163,0.3)]",
         secondary:
-          "bg-midnight-600 text-offwhite-200 hover:bg-midnight-500 border border-gold-400/30",
-        ghost: "text-offwhite-200 hover:bg-midnight-500 hover:text-gold-400",
-        link: "text-gold-400 underline-offset-4 hover:underline hover:text-gold-300",
+          "bg-space-600 text-silver-100 hover:bg-space-500 border border-white/10",
+        ghost: "text-silver-300 hover:bg-space-500 hover:text-galactic-teal",
+        link: "text-galactic-teal underline-offset-4 hover:underline hover:text-galactic-blue",
         article:
-          "text-body text-offwhite-300 rounded-lg px-5 py-3 hover:bg-midnight-500 hover:text-gold-400 transition-colors",
+          "text-body text-silver-200 rounded-lg px-5 py-3 hover:bg-space-500 hover:text-galactic-teal transition-colors",
         login:
-          "text-body text-gold-400 bg-transparent py-xs px-4xl border border-gold-400 rounded-[999px] hover:bg-gold-400/10 hover:shadow-[0_0_15px_rgba(212,175,55,0.3)] transition-all",
+          "text-body text-galactic-teal bg-transparent py-xs px-4xl border border-galactic-teal rounded-[999px] hover:bg-galactic-teal/10 hover:shadow-[0_0_15px_rgba(78,204,163,0.3)] transition-all",
         signup:
-          "text-body text-midnight-900 bg-gradient-to-r from-gold-400 to-gold-500 py-xs px-4xl border border-gold-400 rounded-[999px] hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] transition-all",
+          "text-body text-space-900 bg-linear-to-r from-galactic-teal to-galactic-blue py-xs px-4xl border border-galactic-teal rounded-[999px] hover:shadow-[0_0_20px_rgba(78,204,163,0.5)] transition-all",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",

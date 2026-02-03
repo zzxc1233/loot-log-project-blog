@@ -17,7 +17,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
       className="toaster group"
       toastOptions={{
         classNames: {
-          toast: 'bg-midnight-800 border border-midnight-400 text-offwhite-300',
+          toast: 'group toaster group-[.toaster]:bg-space-700 group-[.toaster]:text-silver-100 group-[.toaster]:border-white/10 group-[.toaster]:shadow-lg group-[.toaster]:min-h-12 group-[.toaster]:py-3',
           title: 'text-offwhite-200 font-semibold',
           description: 'text-offwhite-400',
           success: '!bg-green !border-green !text-offwhite-100',

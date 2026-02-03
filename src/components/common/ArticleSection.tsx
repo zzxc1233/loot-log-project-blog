@@ -89,7 +89,7 @@ function ArticleSection({ className }: ArticleSectionProps) {
         <>
             {/* Search Section */}
             <div className={cn("flex-col", className)}>
-                <div className="text-headline-3 p-4 text-gold-gradient">
+                <div className="text-headline-3 p-4 text-galactic-teal">
                     <p>Latest articles</p>
                 </div>
                 <div>

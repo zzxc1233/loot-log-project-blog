@@ -7,7 +7,7 @@ function HeroSection() {
   return (
     <>
       <Navbar />
-      <section className="px-4 sm:px-6 py-6 sm:py-10 xl:px-30 xl:py-14 bg-midnight-900 min-h-screen">
+      <section className="px-4 sm:px-6 py-6 sm:py-10 xl:px-30 xl:py-14 bg-space-900 min-h-screen">
         <Header />
         <ArticleSection />
       </section>
