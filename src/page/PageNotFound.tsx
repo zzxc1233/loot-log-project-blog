@@ -1,6 +1,5 @@
 import Navbar from "../components/layout/Navbar"
 import Footer from "../components/layout/Footer"
-import { CircleAlert } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
@@ -10,14 +9,25 @@ function PageNotFound() {
     return (
         <>
             <Navbar />
-            <div className="bg-space-900 min-h-screen flex flex-col justify-center items-center px-4 sm:px-0">
-                <div className="flex flex-col gap-4 w-full items-center">
-                    <CircleAlert className="text-red-500" width={80} height={80} />
-                    <h1 className="text-headline-3 sm:text-headline text-galactic-teal text-center">Page Not Found</h1>
-                    <p className="text-body-3 sm:text-body text-silver-300 text-center">The page you are looking for does not exist.</p>
-                    <Button variant="default" onClick={() => navigate("/")}>Back to Home</Button>
+            <section className="bg-midnight-700 dark:bg-gray-900 px-6">
+                <div className="container min-h-screen px-6 py-12 mx-auto lg:flex lg:items-center lg:gap-12">
+                    <div className="wf-ull lg:w-1/2">
+                        <p className="text-sm font-medium text-galactic-teal dark:text-blue-400">404 error</p>
+                        <h1 className="mt-3 text-2xl font-semibold text-white dark:text-white md:text-3xl">Page not found</h1>
+                        <p className="mt-4 text-gray-500 dark:text-gray-400">Sorry, the page you are looking for doesn't exist.Here are some helpful links:</p>
+
+                        <div className="flex items-center mt-6 gap-x-3">
+                            <Button onClick={() => navigate("/")}>
+                                Take me home
+                            </Button>
+                        </div>
+                    </div>
+
+                    <div className="relative w-full mt-12 lg:w-1/2 lg:mt-0">
+                        <img src="https://merakiui.com/images/components/illustration.svg" alt="" />
+                    </div>
                 </div>
-            </div>
+            </section>
             <Footer />
         </>
     )
