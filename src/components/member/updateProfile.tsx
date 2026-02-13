@@ -2,57 +2,130 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { User } from "lucide-react";
 import { useState } from "react";
+import axiosInstance from "@/lib/axios";
+import { toast } from "sonner";
 
 interface UpdateProfileProps {
     initialName?: string;
     initialUsername?: string;
+    initialProfilePic?: string;
     email?: string;
 }
 
 function UpdateProfile({
-    initialName = "Moodeng ja",
-    initialUsername = "moodeng.cute",
-    email = "moodeng.cute@gmail.com"
+    initialName,
+    initialUsername,
+    initialProfilePic,
+    email
 }: UpdateProfileProps) {
     const [name, setName] = useState(initialName);
     const [username, setUsername] = useState(initialUsername);
     const [error, setError] = useState({
         name: "",
         username: "",
+        profilePic: ""
     });
+    const [profilePicFile, setProfilePicFile] = useState<File | null>(null);
+    const [profilePicPreview, setProfilePicPreview] = useState<string>("");
 
-    function handleSave() {
+
+    const handleProfilePicChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const file = event.target.files?.[0];
+        if (!file) return;
+
+        if (!file.type.startsWith('image/')) {
+            toast.error("Please select an image file");
+            return;
+        }
+
+        if (file.size > 5 * 1024 * 1024) {
+            toast.error("Image size should be less than 5MB");
+            return;
+        }
+
+        setProfilePicFile(file);
+        const objectUrl = URL.createObjectURL(file);
+        setProfilePicPreview(objectUrl);
+
+        return () => URL.revokeObjectURL(objectUrl);
+    };
+
+    async function handleSave() {
         let isError = false;
-        let newError = { ...error };
+        let newError = { name: "", username: "", profilePic: "" };
 
-        if (!name.trim()) {
+        if (!name?.trim()) {
             newError.name = "Name is required";
             isError = true;
         }
-        if (!username.trim()) {
+        if (!username?.trim()) {
             newError.username = "Username is required";
             isError = true;
         }
 
         setError(newError);
         if (!isError) {
-            // TODO: Save profile logic here
-            console.log("Profile saved:", { name, username, email });
+            try {
+                const formData = new FormData();
+                formData.append('name', name!.trim());
+                formData.append('username', username!.trim());
+
+                // ส่งไฟล์เฉพาะเมื่อมีการเลือกรูปใหม่เท่านั้น
+                if (profilePicFile) {
+                    formData.append('profile_pic', profilePicFile);
+                }
+
+                await axiosInstance.put('/auth/update-profile', formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                    },
+                });
+
+                toast.success("Profile updated successfully");
+            } catch (error: any) {
+                const errorMessage = error.response?.data?.error || "Error updating profile";
+                toast.error(errorMessage);
+            }
         }
     }
 
     return (
         <div className="flex flex-col gap-8">
             {/* profile picture */}
+            <h2 className="text-xl font-semibold text-galactic-teal">Update Profile</h2>
             <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-midnight-600 border border-gold-400/30 flex items-center justify-center">
-                    <User className="text-gold-400 w-10 h-10 sm:w-12 sm:h-12" />
+                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-midnight-600 border border-gold-400/30 flex items-center justify-center overflow-hidden">
+                    {/* 1. รูปที่เลือกใหม่ (Preview) 2. รูปเดิมจากฐานข้อมูล (initialProfilePic) */}
+                    {(profilePicPreview || initialProfilePic) ? (
+                        <img
+                            src={profilePicPreview || initialProfilePic}
+                            alt="Profile"
+                            className="w-full h-full object-cover"
+                        />
+                    ) : (
+                        <User className="text-gold-400 w-10 h-10 sm:w-12 sm:h-12" />
+                    )}
                 </div>
-                <Button
-                    variant="outline"
-                >
-                    Upload profile picture
-                </Button>
+                <div className="flex flex-col gap-2">
+                    <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleProfilePicChange}
+                        className="hidden"
+                        id="profile-pic-input"
+                    />
+                    <Button
+                        variant="outline"
+                        onClick={() => document.getElementById('profile-pic-input')?.click()}
+                    >
+                        Upload profile picture
+                    </Button>
+                    {profilePicFile && (
+                        <p className="text-xs text-offwhite-400">
+                            Selected: {profilePicFile.name}
+                        </p>
+                    )}
+                </div>
             </div>
 
             {/* form */}

@@ -3,7 +3,7 @@ import { Button } from "../ui/button";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { CircleCheck } from 'lucide-react';
-import axios from "axios";
+import axios from "@/lib/axios"
 import { toast } from "sonner";
 
 function Login() {
@@ -45,7 +45,17 @@ function Login() {
         try {
 
             const response = await axios.post(`${API_BASE_URL}/auth/login`, data);
+            
             if (response.status === 200 || response.status === 201) {
+                const token = response.data.access_token;
+                const refreshToken = response.data.refresh_token;
+                if (token) {
+                    localStorage.setItem("token", token);
+                }
+                if (refreshToken) {
+                    localStorage.setItem("refreshToken", refreshToken);
+                }
+
                 setSubmit(true);
                 toast.success("Login successful", {
                     duration: 5000,

@@ -2,6 +2,7 @@ import { Button } from "../ui/button";
 import { User, KeyRound, Menu, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { type ReactNode, useState } from "react";
+import { toast } from "sonner";
 
 interface MemberLayoutProps {
     activeTab: string;
@@ -18,6 +19,15 @@ export default function MemberLayout({ activeTab, setActiveTab, children }: Memb
         { id: 'profile', icon: User, label: 'Profile' },
         { id: 'password', icon: KeyRound, label: 'Reset Password' }
     ];
+
+    const handleLogout = () => {
+        // ลบ token ออกจาก localStorage
+        localStorage.removeItem("token");
+        localStorage.removeItem("refreshToken");
+
+        toast.success("Logged out successfully");
+        navigate('/');
+    };
 
     return (
         <>
@@ -73,8 +83,9 @@ export default function MemberLayout({ activeTab, setActiveTab, children }: Memb
 
                     <div className="p-4 sm:p-6 flex flex-col justify-end gap-4 sm:gap-8">
                         <Button
-                            onClick={() => navigate('/')}
+                            onClick={handleLogout}
                             className="w-full sm:w-auto"
+                            variant="outline"
                         >
                             Log out
                         </Button>
