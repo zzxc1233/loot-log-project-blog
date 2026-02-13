@@ -37,7 +37,10 @@ export default function MemberManagement() {
     function renderContent() {
         switch (activeTab) {
             case 'password':
-                return <ResetPassword />
+                return <ResetPassword
+                    key={user.username || "loading"}
+                    initialProfilePic={user.profile_pic}
+                />
             default:
                 return (
                     <UpdateProfile
@@ -50,7 +53,7 @@ export default function MemberManagement() {
                 )
         }
     }
-    
+
     return (
         <MemberLayout activeTab={activeTab} setActiveTab={setActiveTab}>
             {renderContent()}

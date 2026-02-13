@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { X, User } from "lucide-react";
 import { useState } from "react";
+import axios from "@/lib/axios";
 
 import {
     AlertDialog,
@@ -12,13 +13,14 @@ import {
     AlertDialogFooter,
     AlertDialogTitle
 } from "@/components/ui/alert-dialog";
+import { toast } from "sonner";
 
-function ResetPassword() {
-    const [password, setPassword] = useState("");
+function ResetPassword({initialProfilePic}: {initialProfilePic?: string}) {
+    const [oldPassword, setOldPassword] = useState("");
     const [newPassword, setNewPassword] = useState("");
     const [confirmNewPassword, setConfirmNewPassword] = useState("");
     const [error, setError] = useState({
-        password: "",
+        oldPassword: "",
         newPassword: "",
         confirmNewPassword: "",
     });
@@ -28,8 +30,8 @@ function ResetPassword() {
         let isError = false;
         let newError = { ...error };
 
-        if (!password.trim()) {
-            newError.password = "Password is required";
+        if (!oldPassword.trim()) {
+            newError.oldPassword = "Password is required";
             isError = true;
         }
         if (!newPassword.trim()) {
@@ -51,33 +53,53 @@ function ResetPassword() {
         }
     }
 
-    function handleResetPassword() {
+    async function handleResetPassword() {
         // TODO: Reset password logic here
-        console.log("Password reset:", { password, newPassword });
-        setOpen(false);
-        // Clear form
-        setPassword("");
-        setNewPassword("");
-        setConfirmNewPassword("");
+        try {
+            await axios.put("/auth/reset-password", {
+                oldPassword,
+                newPassword
+            });
+
+            toast.success("Password updated successfully")
+
+            setOpen(false);
+            // Clear form
+            setOldPassword("");
+            setNewPassword("");
+            setConfirmNewPassword("");
+        } catch (error: any) {
+            const errorMessage = error.response?.data?.error || "Fail to reset password";
+            toast.error(errorMessage)
+        }
     }
 
     return (
         <>
             <div className="flex flex-col gap-6 max-w-lg">
                 <h2 className="text-xl font-semibold text-galactic-teal">Reset Password</h2>
-                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-space-600 border border-white/10 flex items-center justify-center">
-                    <User className="text-galactic-teal w-10 h-10 sm:w-12 sm:h-12" />
+                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-midnight-600 border border-gold-400/30 flex items-center justify-center overflow-hidden">
+                    
+                    {initialProfilePic ? (
+                        <img
+                            src={initialProfilePic}
+                            alt="Profile"
+                            className="w-full h-full object-cover"
+                        />
+                    ) : (
+                        <User className="text-gold-400 w-10 h-10 sm:w-12 sm:h-12" />
+                    )}
                 </div>
                 <div className="flex flex-col gap-2">
                     <label className="text-sm text-silver-400">Current Password</label>
-                    {error.password && <p className="text-body-3 text-red-500">{error.password}</p>}
+                    {error.oldPassword && <p className="text-body-3 text-red-500">{error.oldPassword}</p>}
                     <Input
                         type="password"
                         placeholder="Enter current password"
-                        value={password}
+                        value={oldPassword}
                         onChange={(e) => {
-                            setPassword(e.target.value);
-                            if (error.password) setError({ ...error, password: "" });
+                            setOldPassword(e.target.value);
+                            if (error.oldPassword) setError({ ...error, oldPassword: "" });
                         }}
                     />
                 </div>
