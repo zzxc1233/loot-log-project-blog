@@ -46,6 +46,7 @@ function Login() {
 
             const response = await axios.post(`${API_BASE_URL}/auth/login`, data);
             if (response.status === 200 || response.status === 201) {
+                setSubmit(true);
                 toast.success("Login successful", {
                     duration: 5000,
                 });
