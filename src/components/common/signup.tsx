@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import { ValidationEmailContext } from "../context/validationEmail";
 import { CircleCheck } from 'lucide-react';
+import axios from "axios";
+import { toast } from "sonner"
 
 function SignUp() {
 
@@ -21,10 +23,12 @@ function SignUp() {
         password: "",
     });
 
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
     const validationEmail = useContext(ValidationEmailContext);
 
-    function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
+
         let isError = false;
         let newError = { name: "", username: "", email: "", password: "" };
 
@@ -49,8 +53,29 @@ function SignUp() {
         }
 
         setError(newError);
-        if (!isError) {
-            setSubmit(true);
+        if (isError) {
+            return; // Return early if validation fails
+        }
+
+        const formData = new FormData(e.currentTarget);
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+            const response = await axios.post(`${API_BASE_URL}/auth/register`, data);
+
+            if (response.status === 201) {
+                setSubmit(true);
+                toast.success("User created successfully");
+            } else {
+                toast.error("Failed to create user");
+                throw new Error('Failed to create user');
+            }
+        } catch (error: any) {
+            const errorMessage = error.response?.data?.error || "An unexpected error occurred";
+            toast.error(errorMessage);
+            return ({
+                message: `Error: ${errorMessage}`
+            })
         }
     }
 
@@ -71,6 +96,7 @@ function SignUp() {
                                     <Input
                                         type="text"
                                         id="name"
+                                        name="name"
                                         placeholder="Name"
                                         className="mb-4"
                                         value={name}
@@ -85,6 +111,7 @@ function SignUp() {
                                     <Input
                                         type="text"
                                         id="username"
+                                        name="username"
                                         placeholder="Username"
                                         className="mb-4"
                                         value={username}
@@ -98,6 +125,7 @@ function SignUp() {
                                     <Input
                                         type="email"
                                         id="email"
+                                        name="email"
                                         placeholder="Email"
                                         className="mb-4"
                                         value={email}
@@ -111,6 +139,7 @@ function SignUp() {
                                     <Input
                                         type="password"
                                         id="password"
+                                        name="password"
                                         placeholder="Password"
                                         className="mb-4"
                                         value={password}

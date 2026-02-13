@@ -22,10 +22,12 @@ export function DataById({ children }: { children: React.ReactNode }) {
     const params = useParams();
     const [data, setData] = useState<Post[]>([]);
 
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
     async function getPostData() {
         try {
             const response = await axios.get(
-                `https://blog-post-project-api.vercel.app/posts?id=${params.id}`,
+                `${API_BASE_URL}/posts?id=${params.id}`,
             );
             setData(response.data.posts);
         } catch (error) {

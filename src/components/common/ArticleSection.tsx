@@ -41,14 +41,15 @@ function ArticleSection({ className }: ArticleSectionProps) {
     const [hasMore, setHasMore] = useState<boolean>(true);
 
     const isActive = (category: string) => selectedCategory === category;
-
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+    
     async function getCardsData(targetPage: number, category: string, isNewCategory: boolean = false) {
         try {
             setIsLoading(true);
             const categoryParam = category === "Highlight" ? "" : category;
 
             const response = await axios.get(
-                "https://blog-post-project-api.vercel.app/posts",
+                `${API_BASE_URL}/posts`,
                 {
                     params: {
                         page: targetPage,
@@ -152,7 +153,7 @@ function ArticleSection({ className }: ArticleSectionProps) {
             {/* Blog Cards Section */}
             <section className="py-6 xl:px-0">
                 <div className="grid gap-4 sm:gap-6 sm:grid-cols-2">
-                    {cards.map((card) => (
+                    {cards && cards.map((card) => (
                         <article key={card.id} className="flex flex-col">
                             <BlogCardUI {...card} />
                         </article>

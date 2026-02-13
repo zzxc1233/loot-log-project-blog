@@ -14,11 +14,12 @@ function BlogPostPage() {
         <>
             <Navbar />
             <div className="bg-midnight-900 min-h-screen">
-                {data
-                    .filter((post: any) => post.id == params.id)
-                    .map((post: any) => (
-                        <BlogPost key={post.id} {...post} />
-                    ))}
+                {data &&
+                    data
+                        .filter((post: any) => post.id == params.id)
+                        .map((post: any) => (
+                            <BlogPost key={post.id} {...post} />
+                        ))}
             </div>
             <Footer />
         </>

@@ -3,6 +3,8 @@ import { Button } from "../ui/button";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { CircleCheck } from 'lucide-react';
+import axios from "axios";
+import { toast } from "sonner";
 
 function Login() {
     const navigate = useNavigate();
@@ -15,13 +17,16 @@ function Login() {
         password: "",
     });
 
-    function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+
+        const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
         e.preventDefault();
         let isError = false;
         let newError = { username: "", password: "" };
 
         if (!username.trim()) {
-            newError.username = "Username is required";
+            newError.username = "Email is required";
             isError = true;
         }
         if (!password.trim()) {
@@ -30,9 +35,30 @@ function Login() {
         }
 
         setError(newError);
-        if (!isError) {
-            setSubmit(true);
+        if (isError) {
+            return; // Return early if validation fails
         }
+
+        const formData = new FormData(e.currentTarget);
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+
+            const response = await axios.post(`${API_BASE_URL}/auth/login`, data);
+            if (response.status === 200 || response.status === 201) {
+                toast.success("Login successful", {
+                    duration: 5000,
+                });
+                navigate("/member");
+            }
+        } catch (error: any) {
+            const errorMessage = error.response?.data?.error || "An unexpected error occurred";
+            toast.error(errorMessage);
+            return ({
+                message: `Error: ${errorMessage}`
+            })
+        }
+
     }
 
     return (
@@ -47,12 +73,13 @@ function Login() {
                                 className="flex flex-col gap-4 sm:gap-6 w-11/12 sm:w-2/3"
                             >
                                 <div className="flex flex-col gap-2">
-                                    <label htmlFor="username" className="text-silver-200 font-medium">Username</label>
+                                    <label htmlFor="username" className="text-silver-200 font-medium">Email</label>
                                     {error.username && <p className="text-body-3 text-red-500">{error.username}</p>}
                                     <Input
                                         type="text"
                                         id="username"
-                                        placeholder="Username"
+                                        name="email"
+                                        placeholder="Email"
                                         className="mb-4"
                                         value={username}
                                         onChange={(e) => {
@@ -65,6 +92,7 @@ function Login() {
                                     <Input
                                         type="password"
                                         id="password"
+                                        name="password"
                                         placeholder="Password"
                                         className="mb-4"
                                         value={password}
