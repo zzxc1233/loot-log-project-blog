@@ -1,8 +1,9 @@
-import { Button } from "../ui/button";
+import { useAuth } from "@/components/contexts/AuthProvider";
 import { User, KeyRound, Menu, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { type ReactNode, useState } from "react";
 import { toast } from "sonner";
+import { Button } from "../ui/button";
 
 interface MemberLayoutProps {
     activeTab: string;
@@ -13,6 +14,7 @@ interface MemberLayoutProps {
 export default function MemberLayout({ activeTab, setActiveTab, children }: MemberLayoutProps) {
 
     const navigate = useNavigate();
+    const { logout } = useAuth();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const menuItems = [
@@ -21,11 +23,8 @@ export default function MemberLayout({ activeTab, setActiveTab, children }: Memb
     ];
 
     const handleLogout = () => {
-        // ลบ token ออกจาก localStorage
-        localStorage.removeItem("token");
-        localStorage.removeItem("refreshToken");
-
-        toast.success("Logged out successfully");
+        logout();
+        toast.success("Logout successfully");
         navigate('/');
     };
 
@@ -79,6 +78,16 @@ export default function MemberLayout({ activeTab, setActiveTab, children }: Memb
                                 <span className="text-sm sm:text-base">{menu.label}</span>
                             </button>
                         ))}
+                    </div>
+
+                    <div className="p-4 sm:p-6 flex flex-col justify-end gap-4 sm:gap-8">
+                        <Button
+                            onClick={() => navigate('/')}
+                            className="w-full sm:w-auto"
+                            variant="default"
+                        >
+                            Home 
+                        </Button>
                     </div>
 
                     <div className="p-4 sm:p-6 flex flex-col justify-end gap-4 sm:gap-8">

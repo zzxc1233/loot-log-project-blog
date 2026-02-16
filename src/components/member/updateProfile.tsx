@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { User } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axiosInstance from "@/lib/axios";
 import { toast } from "sonner";
+import { useAuth } from "@/components/contexts/AuthProvider";
 
 interface UpdateProfileProps {
     initialName?: string;
@@ -18,8 +19,9 @@ function UpdateProfile({
     initialProfilePic,
     email
 }: UpdateProfileProps) {
-    const [name, setName] = useState(initialName);
-    const [username, setUsername] = useState(initialUsername);
+    const { refreshUserData } = useAuth();
+    const [name, setName] = useState(initialName || "");
+    const [username, setUsername] = useState(initialUsername || "");
     const [error, setError] = useState({
         name: "",
         username: "",
@@ -27,6 +29,13 @@ function UpdateProfile({
     });
     const [profilePicFile, setProfilePicFile] = useState<File | null>(null);
     const [profilePicPreview, setProfilePicPreview] = useState<string>("");
+
+    // Set initial profile picture preview
+    useEffect(() => {
+        if (initialProfilePic) {
+            setProfilePicPreview(initialProfilePic);
+        }
+    }, [initialProfilePic]);
 
 
     const handleProfilePicChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -81,6 +90,8 @@ function UpdateProfile({
                     },
                 });
 
+                // Refresh user data to update navbar and component state
+                await refreshUserData();
                 toast.success("Profile updated successfully");
             } catch (error: any) {
                 const errorMessage = error.response?.data?.error || "Error updating profile";
@@ -95,10 +106,9 @@ function UpdateProfile({
             <h2 className="text-xl font-semibold text-galactic-teal">Update Profile</h2>
             <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
                 <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-midnight-600 border border-gold-400/30 flex items-center justify-center overflow-hidden">
-                    {/* 1. รูปที่เลือกใหม่ (Preview) 2. รูปเดิมจากฐานข้อมูล (initialProfilePic) */}
-                    {(profilePicPreview || initialProfilePic) ? (
+                    {profilePicPreview ? (
                         <img
-                            src={profilePicPreview || initialProfilePic}
+                            src={profilePicPreview}
                             alt="Profile"
                             className="w-full h-full object-cover"
                         />

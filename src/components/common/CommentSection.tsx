@@ -1,7 +1,7 @@
 import { Heart, Facebook, Linkedin, Twitter, Copy, X } from 'lucide-react';
 import { Button } from '../ui/button';
 import { useContext, useState } from 'react';
-import { DataByIdContext } from '../context/UseDataById';
+import { DataByIdContext } from '../contexts/UseDataById';
 import { useParams, useNavigate } from 'react-router-dom';
 import { toast } from "sonner"
 

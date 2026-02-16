@@ -1,7 +1,7 @@
 import { Search } from "lucide-react";
 import { Input } from "../ui/input";
 import { useContext } from "react";
-import { DataByIdContext } from "../context/UseDataById"
+import { DataByIdContext } from "../contexts/UseDataById"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 

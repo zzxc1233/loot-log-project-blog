@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { X, User } from "lucide-react";
+import { X } from "lucide-react";
 import { useState } from "react";
 import axios from "@/lib/axios";
 
@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { toast } from "sonner";
 
-function ResetPassword({initialProfilePic}: {initialProfilePic?: string}) {
+function ResetPassword({}: {initialProfilePic?: string}) {
     const [oldPassword, setOldPassword] = useState("");
     const [newPassword, setNewPassword] = useState("");
     const [confirmNewPassword, setConfirmNewPassword] = useState("");
@@ -78,18 +78,6 @@ function ResetPassword({initialProfilePic}: {initialProfilePic?: string}) {
         <>
             <div className="flex flex-col gap-6 max-w-lg">
                 <h2 className="text-xl font-semibold text-galactic-teal">Reset Password</h2>
-                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-midnight-600 border border-gold-400/30 flex items-center justify-center overflow-hidden">
-                    
-                    {initialProfilePic ? (
-                        <img
-                            src={initialProfilePic}
-                            alt="Profile"
-                            className="w-full h-full object-cover"
-                        />
-                    ) : (
-                        <User className="text-gold-400 w-10 h-10 sm:w-12 sm:h-12" />
-                    )}
-                </div>
                 <div className="flex flex-col gap-2">
                     <label className="text-sm text-silver-400">Current Password</label>
                     {error.oldPassword && <p className="text-body-3 text-red-500">{error.oldPassword}</p>}

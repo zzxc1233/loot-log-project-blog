@@ -1,3 +1,4 @@
+import { useAuth } from "@/components/contexts/AuthProvider";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +9,7 @@ import { toast } from "sonner";
 
 function Login() {
     const navigate = useNavigate();
+    const { login } = useAuth();
 
     const [submit, setSubmit] = useState(false);
     const [username, setUsername] = useState("");
@@ -49,18 +51,37 @@ function Login() {
             if (response.status === 200 || response.status === 201) {
                 const token = response.data.access_token;
                 const refreshToken = response.data.refresh_token;
+                const userData = response.data.user;
+                
+                // Store token directly (backup method)
                 if (token) {
                     localStorage.setItem("token", token);
                 }
                 if (refreshToken) {
                     localStorage.setItem("refreshToken", refreshToken);
                 }
+                
+                // Try to use AuthContext if user data exists
+                if (token && userData) {
+                    await login(token, refreshToken, userData);
+                } else {
+                    // Set authentication state even without user data
+                    if (token) {
+                        await login(token, refreshToken || '', {
+                            id: '',
+                            name: 'User',
+                            username: username,
+                            email: '',
+                            profile_pic: undefined
+                        });
+                    }
+                }
 
                 setSubmit(true);
                 toast.success("Login successful", {
                     duration: 5000,
                 });
-                navigate("/member");
+                navigate("/");
             }
         } catch (error: any) {
             const errorMessage = error.response?.data?.error || "An unexpected error occurred";

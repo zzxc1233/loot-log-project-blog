@@ -3,7 +3,7 @@ import BlogPost from "../components/common/BlogPost";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import { useContext } from "react";
-import { DataByIdContext } from "../components/context/UseDataById";
+import { DataByIdContext } from "../components/contexts/UseDataById";
 
 function BlogPostPage() {
 

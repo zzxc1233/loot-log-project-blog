@@ -1,62 +1,51 @@
+import Navbar from "@/components/layout/Navbar";
 import MemberLayout from "../components/member/MemberLayout";
 import UpdateProfile from "@/components/member/updateProfile";
 import ResetPassword from "@/components/member/resetPassword";
-import { useEffect, useState } from "react";
-import axios from "@/lib/axios"
+import { useState } from "react";
+import { useAuth } from "@/components/contexts/AuthProvider";
 
 export default function MemberManagement() {
     const [activeTab, setActiveTab] = useState("profile");
-    const [user, setUser] = useState({
-        name: "",
-        username: "",
-        profile_pic: "",
-        email: ""
-    });
 
-    useEffect(() => {
-        const fetchUserData = async () => {
-            try {
-                const response = await axios.get(`/auth/get-user`);
-                const data = response.data
+    // 1. ดึง user และ loading มาจาก useAuth() ได้เลย
+    const { user, loading } = useAuth();
 
-                if (data) {
-                    setUser({
-                        name: data.name,
-                        username: data.username,
-                        profile_pic: data.profile_pic,
-                        email: data.email
-                    });
-                }
-            } catch (error) {
-                console.error("Error fetching user data:", error);
-            }
-        };
-        fetchUserData();
-    }, []);
+    // 2. ถ้ากำลังโหลดข้อมูล ให้แสดงสถานะ Loading
+    if (loading) {
+        return (
+            <MemberLayout activeTab={activeTab} setActiveTab={setActiveTab}>
+                <div className="flex justify-center items-center h-64 text-galactic-teal">
+                    Loading user data...
+                </div>
+            </MemberLayout>
+        );
+    }
+
+    // 3. ถ้าไม่มี user (เช่น token หมดอายุ) อาจจะสั่ง logout หรือ return null
+    if (!user) return null;
 
     function renderContent() {
         switch (activeTab) {
             case 'password':
-                return <ResetPassword
-                    key={user.username || "loading"}
-                    initialProfilePic={user.profile_pic}
-                />
+                return <ResetPassword key={user?.id} />;
             default:
-                return (
-                    <UpdateProfile
-                        key={user.username || "loading"}
-                        initialName={user.name}
-                        initialUsername={user.username}
-                        initialProfilePic={user.profile_pic}
-                        email={user.email}
-                    />
-                )
+                return <UpdateProfile 
+                    key={user?.id} 
+                    initialName={user?.name}
+                    initialUsername={user?.username}
+                    initialProfilePic={user?.profile_pic}
+                    email={user?.email}
+                />
         }
     }
 
     return (
+        <>
+        <Navbar className="hidden sm:flex"/>
         <MemberLayout activeTab={activeTab} setActiveTab={setActiveTab}>
             {renderContent()}
         </MemberLayout>
+        </>
     )
 }
