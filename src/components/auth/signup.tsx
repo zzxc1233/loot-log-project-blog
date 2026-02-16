@@ -16,6 +16,7 @@ function SignUp() {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [role, setRole] = useState("user");
     const [error, setError] = useState({
         name: "",
         username: "",
@@ -58,6 +59,7 @@ function SignUp() {
         }
 
         const formData = new FormData(e.currentTarget);
+        formData.append('role', role);
         const data = Object.fromEntries(formData.entries());
 
         try {
@@ -148,6 +150,31 @@ function SignUp() {
                                             if (error.password) setError({ ...error, password: "" })
                                         }}
                                     />
+                                    <label className="text-offwhite-200 mb-2">Select Role</label>
+                                    <div className="flex gap-4 mb-4">
+                                        <label className="flex items-center gap-2 text-offwhite-200 cursor-pointer">
+                                            <input
+                                                type="radio"
+                                                name="role"
+                                                value="user"
+                                                checked={role === "user"}
+                                                onChange={(e) => setRole(e.target.value)}
+                                                className="w-4 h-4 text-gold-400 bg-gray-100 border-gray-300 focus:ring-gold-400"
+                                            />
+                                            User
+                                        </label>
+                                        <label className="flex items-center gap-2 text-offwhite-200 cursor-pointer">
+                                            <input
+                                                type="radio"
+                                                name="role"
+                                                value="admin"
+                                                checked={role === "admin"}
+                                                onChange={(e) => setRole(e.target.value)}
+                                                className="w-4 h-4 text-gold-400 bg-gray-100 border-gray-300 focus:ring-gold-400"
+                                            />
+                                            Admin
+                                        </label>
+                                    </div>
                                 </div>
                                 <Button
                                     type="submit"

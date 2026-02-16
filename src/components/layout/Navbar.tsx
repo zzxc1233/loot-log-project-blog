@@ -45,8 +45,8 @@ function Navbar({ className = "" }: NavbarProps) {
                 )}
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => navigate("/member")}>
-                  Member Panel
+                <DropdownMenuItem onClick={() => navigate(user?.role === 'admin' ? '/admin' : '/member')}>
+                  {user?.role === 'admin' ? 'Admin Panel' : 'Member Panel'}
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => {
                   logout();
@@ -100,7 +100,9 @@ function Navbar({ className = "" }: NavbarProps) {
                 </div>
                 <Button variant="outline"
                   className="cursor-pointer w-full"
-                  onClick={() => navigate("/member")}>Member Panel</Button>
+                  onClick={() => navigate(user?.role === 'admin' ? '/admin' : '/member')}>
+                  {user?.role === 'admin' ? 'Admin Panel' : 'Member Panel'}
+                </Button>
                 <Button variant="outline"
                   className="cursor-pointer w-full"
                   onClick={() => {

@@ -72,6 +72,7 @@ function Login() {
                             name: 'User',
                             username: username,
                             email: '',
+                            role: 'user',
                             profile_pic: undefined
                         });
                     }

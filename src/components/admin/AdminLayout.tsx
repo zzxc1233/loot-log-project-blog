@@ -1,6 +1,7 @@
 import { Button } from "../ui/button";
 import { NotebookText, FolderClosed, User, Bell, KeyRound, Menu, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../auth/AuthProvider";
 import { type ReactNode, useState } from "react";
 
 interface AdminLayoutProps {
@@ -12,6 +13,7 @@ interface AdminLayoutProps {
 export default function AdminLayout({ activeTab, setActiveTab, children }: AdminLayoutProps) {
 
     const navigate = useNavigate();
+    const { logout } = useAuth();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const menuItems = [
@@ -76,6 +78,17 @@ export default function AdminLayout({ activeTab, setActiveTab, children }: Admin
                     <div className="p-4 sm:p-6 flex flex-col justify-end gap-4 sm:gap-8">
                         <Button
                             onClick={() => navigate('/')}
+                            className="w-full sm:w-auto"
+                            variant="default"
+                        >
+                            Home
+                        </Button>
+                        <Button
+                            variant="outline"
+                            onClick={() => {
+                                logout();
+                                navigate('/');
+                            }}
                             className="w-full sm:w-auto"
                         >
                             Log out
