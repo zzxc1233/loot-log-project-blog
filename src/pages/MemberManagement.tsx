@@ -1,9 +1,9 @@
-import Navbar from "@/components/layout/Navbar";
+import Navbar from "../components/layout/Navbar";
 import MemberLayout from "../components/member/MemberLayout";
-import UpdateProfile from "@/components/member/updateProfile";
-import ResetPassword from "@/components/member/resetPassword";
+import UpdateProfile from "../components/member/updateProfile";
+import ResetPassword from "../components/member/resetPassword";
 import { useState } from "react";
-import { useAuth } from "@/components/contexts/AuthProvider";
+import { useAuth } from "../components/auth/AuthProvider";
 
 export default function MemberManagement() {
     const [activeTab, setActiveTab] = useState("profile");

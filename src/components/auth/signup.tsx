@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import { ValidationEmailContext } from "../contexts/validationEmail";
 import { CircleCheck } from 'lucide-react';
-import axios from "axios";
+import axios from "../../lib/axios";
 import { toast } from "sonner"
 
 function SignUp() {

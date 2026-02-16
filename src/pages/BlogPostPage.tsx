@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import BlogPost from "../components/common/BlogPost";
+import BlogPost from "../components/blog/BlogPost";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import { useContext } from "react";

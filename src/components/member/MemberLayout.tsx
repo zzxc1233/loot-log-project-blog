@@ -1,4 +1,4 @@
-import { useAuth } from "@/components/contexts/AuthProvider";
+import { useAuth } from "../auth/AuthProvider";
 import { User, KeyRound, Menu, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { type ReactNode, useState } from "react";

@@ -1,5 +1,5 @@
 import ReactMarkdown from "react-markdown";
-import CommentSection from "./CommentSection";
+import CommentSection from "./comments/CommentSection";
 
 interface BlogPostProps {
     image: string;

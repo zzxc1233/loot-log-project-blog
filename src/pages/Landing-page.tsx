@@ -1,5 +1,5 @@
 import Header from "../components/Header";
-import ArticleSection from "../components/common/ArticleSection";
+import ArticleSection from "../components/blog/ArticleSection";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 

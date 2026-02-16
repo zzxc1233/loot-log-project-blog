@@ -1,8 +1,8 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from "../ui/button";
+import { Input } from "../ui/input";
 import { X } from "lucide-react";
 import { useState } from "react";
-import axios from "@/lib/axios";
+import axios from "../../lib/axios";
 
 import {
     AlertDialog,
@@ -12,7 +12,7 @@ import {
     AlertDialogDescription,
     AlertDialogFooter,
     AlertDialogTitle
-} from "@/components/ui/alert-dialog";
+} from "../ui/alert-dialog";
 import { toast } from "sonner";
 
 function ResetPassword({}: {initialProfilePic?: string}) {

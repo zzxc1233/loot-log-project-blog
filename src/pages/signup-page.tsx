@@ -1,6 +1,6 @@
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import SignUp from "@/components/common/signup";
+import Navbar from "../components/layout/Navbar";
+import Footer from "../components/layout/Footer";
+import SignUp from "../components/auth/signup";
 
 
 

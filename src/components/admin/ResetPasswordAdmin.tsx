@@ -1,5 +1,5 @@
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Input } from "../ui/input";
+import { Button } from "../ui/button";
 import {
     AlertDialog,
     AlertDialogAction,
@@ -8,7 +8,7 @@ import {
     AlertDialogDescription,
     AlertDialogFooter,
     AlertDialogTitle
-} from "@/components/ui/alert-dialog";
+} from "../ui/alert-dialog";
 import { useState } from "react";
 
 export default function ResetPasswordAmin() {

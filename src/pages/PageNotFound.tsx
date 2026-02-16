@@ -1,6 +1,6 @@
 import Navbar from "../components/layout/Navbar"
 import Footer from "../components/layout/Footer"
-import { Button } from "@/components/ui/button";
+import { Button } from "../components/ui/button";
 import { useNavigate } from "react-router-dom";
 
 

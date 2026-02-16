@@ -1,10 +1,10 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from "../ui/button";
+import { Input } from "../ui/input";
 import { User } from "lucide-react";
 import { useState, useEffect } from "react";
-import axiosInstance from "@/lib/axios";
+import axiosInstance from "../../lib/axios";
 import { toast } from "sonner";
-import { useAuth } from "@/components/contexts/AuthProvider";
+import { useAuth } from "../auth/AuthProvider";
 
 interface UpdateProfileProps {
     initialName?: string;

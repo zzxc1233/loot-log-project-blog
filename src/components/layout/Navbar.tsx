@@ -1,7 +1,7 @@
 import logoHH from "../../assets/img/logo-hh.png";
 import { Menu, User } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "@/components/contexts/AuthProvider";
+import { useAuth } from "../auth/AuthProvider";
 
 // UI Components
 import { Button } from "../ui/button";

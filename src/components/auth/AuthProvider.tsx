@@ -112,8 +112,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }, []);
 
     const login = async (token: string, refreshToken: string, user: User) => {
-        console.log('AuthProvider login function called with:', { token, refreshToken, user }); // Debug log
-        
         // Use token manager to store data
         tokenManager.storeTokens(token, refreshToken, user);
 

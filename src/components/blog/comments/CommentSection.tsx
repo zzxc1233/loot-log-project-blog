@@ -1,9 +1,13 @@
 import { Heart, Facebook, Linkedin, Twitter, Copy, X } from 'lucide-react';
-import { Button } from '../ui/button';
+import { Button } from '../../ui/button';
 import { useContext, useState } from 'react';
-import { DataByIdContext } from '../contexts/UseDataById';
-import { useParams, useNavigate } from 'react-router-dom';
-import { toast } from "sonner"
+import { DataByIdContext } from '../../contexts/UseDataById';
+import { useNavigate, useParams } from 'react-router-dom';
+import { Textarea } from "../../ui/textarea";
+import { useAuth } from "../../auth/AuthProvider";
+import { useComments } from "../../../hooks/useComments";
+import { toast } from "sonner";
+import CommentList from './commentList';
 
 import {
     AlertDialog,
@@ -11,19 +15,42 @@ import {
     AlertDialogContent,
     AlertDialogDescription,
     AlertDialogTitle,
-} from "@/components/ui/alert-dialog"
-
+} from "../../ui/alert-dialog"
 
 function CommentSection() {
-
     const data = useContext(DataByIdContext);
     const params = useParams();
     const navigate = useNavigate();
-
-    const [isLogin, setIsLogin] = useState(false)
+    const { isAuthenticated } = useAuth();
+    
+    const [isLogin, setIsLogin] = useState(false);
+    const [comment, setComment] = useState("");
+    
+    const {
+        comments,
+        loadingComments,
+        editingCommentId,
+        editingText,
+        handlePostComment,
+        handleEditComment,
+        handleDeleteComment,
+        handleSetEditingComment,
+        canEditComment
+    } = useComments();
 
     function handleIsLogin() {
-        setIsLogin(true);
+        if (!isAuthenticated) {
+            setIsLogin(true);
+        }
+    }
+
+    async function handlePostCommentSubmit(e: React.FormEvent) {
+        e.preventDefault();
+        
+        const result = await handlePostComment(comment);
+        if (result.success) {
+            setComment("");
+        }
     }
 
     return (
@@ -58,24 +85,37 @@ function CommentSection() {
 
                         <div className='flex flex-col'>
                             <p className="text-silver-200 text-body">Comments</p>
-                            <form action=""
-                                className='flex flex-col gap-4 py-4 '>
-                                <textarea
-                                    className="border border-white/10 rounded-2xl h-48 sm:h-72 text-silver-100 bg-space-800 p-4 text-sm sm:text-base focus:border-galactic-teal outline-none transition-all"
-                                    placeholder='Add a comment'
-                                    rows={4}
-                                    cols={10}
-                                    onFocus={handleIsLogin}
+                            <form onSubmit={handlePostCommentSubmit} className='flex flex-col gap-4 py-4 '>
+                                <Textarea
+                                    value={isAuthenticated ? comment : ""}
+                                    onChange={(e) => isAuthenticated && setComment(e.target.value)}
+                                    className="w-full resize-none border-white/10 rounded-2xl h-48 sm:h-72 text-silver-100 bg-space-800 p-4 text-sm sm:text-base focus:border-galactic-teal outline-none transition-all"
+                                    placeholder={isAuthenticated ? 'Add a comment' : 'Please login to comment'}
+                                    onClick={handleIsLogin}
                                 />
                                 <Button
+                                    type="submit"
                                     variant="signup"
-                                    className='w-fit'>Post Comment
+                                    className='w-fit'
+                                    disabled={!isAuthenticated || !comment.trim()}
+                                >
+                                    Post Comment
                                 </Button>
                             </form>
+                            
+                            <CommentList 
+                                comments={comments} 
+                                loadingComments={loadingComments}
+                                onEditComment={handleEditComment}
+                                onDeleteComment={handleDeleteComment}
+                                editingCommentId={editingCommentId}
+                                editingText={editingText}
+                                onSetEditingComment={handleSetEditingComment}
+                                canEditComment={canEditComment}
+                            />
                         </div>
                     </div>
                 ))}
-
             {/* alert login */}
             <AlertDialog open={isLogin} onOpenChange={setIsLogin}>
                 <AlertDialogContent className="bg-space-800 rounded-2xl border border-white/10 pt-16 pb-6 max-w-104 sm:max-w-lg flex flex-col items-center shadow-[0_0_50px_rgba(0,0,0,0.5)]">

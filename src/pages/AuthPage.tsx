@@ -1,10 +1,10 @@
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import Navbar from "../components/layout/Navbar";
+import Footer from "../components/layout/Footer";
+import { Input } from "../components/ui/input";
+import { Button } from "../components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
-import { ValidationEmailContext } from "@/components/contexts/validationEmail";
+import { ValidationEmailContext } from "../components/contexts/validationEmail";
 import { CircleCheck } from 'lucide-react';
 
 type AuthMode = 'login' | 'signup';

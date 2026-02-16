@@ -1,10 +1,10 @@
-import { useAuth } from "@/components/contexts/AuthProvider";
+import { useAuth } from "./AuthProvider";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { CircleCheck } from 'lucide-react';
-import axios from "@/lib/axios"
+import axios from "../../lib/axios"
 import { toast } from "sonner";
 
 function Login() {

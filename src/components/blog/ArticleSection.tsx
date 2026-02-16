@@ -1,7 +1,7 @@
-import { ARTICLE_CATEGORIES } from "@/constants/categories";
-import { SearchInput } from "./SearchInput";
+import { ARTICLE_CATEGORIES } from "../../constants/categories";
+import { SearchInput } from "../common/SearchInput";
 
-import axios from "axios";
+import axios from "../../lib/axios";
 
 import { Button } from "../ui/button";
 import { useState, useEffect } from "react";
@@ -11,8 +11,8 @@ import {
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from "@/components/ui/select";
-import { cn } from "@/lib/utils";
+} from "../ui/select";
+import { cn } from "../../lib/utils";
 import { BlogCardUI } from "./BlogCardUI";
 
 interface Post {
