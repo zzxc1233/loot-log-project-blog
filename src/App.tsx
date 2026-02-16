@@ -12,6 +12,7 @@ import LoginPage from './pages/login-page'
 import MemberManagement from './pages/MemberManagement'
 import AdminPage from './pages/AdminPage'
 import AuthPage from './pages/AuthPage'
+import { ProtectedAdminRoute, ProtectedMemberRoute } from './components/auth/ProtectedRoutes'
 
 function App() {
   return (
@@ -24,10 +25,18 @@ function App() {
               <Route path="/blog-post/:id" element={<BlogPostPage />} />
               <Route path="/signup" element={<SignupPage />} />
               <Route path="/login" element={<LoginPage />} />
-              <Route path="/member" element={<MemberManagement />} />
-              <Route path="/admin" element={<AdminPage />} />
-              <Route path="*" element={<PageNotFound />} />
+              <Route path="/member" element={
+                <ProtectedMemberRoute>
+                  <MemberManagement />
+                </ProtectedMemberRoute>
+              } />
+              <Route path="/admin" element={
+                <ProtectedAdminRoute>
+                  <AdminPage />
+                </ProtectedAdminRoute>
+              } />
               <Route path="/auth" element={<AuthPage />} />
+              <Route path="*" element={<PageNotFound />} />
             </Routes>
           </ValidationEmail>
           <Toaster />

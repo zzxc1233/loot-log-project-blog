@@ -1,5 +1,6 @@
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
+import { Textarea } from "../ui/textarea";
 
 export default function ProfileManament() {
     return (
@@ -44,17 +45,13 @@ export default function ProfileManament() {
                             className="mb-4 w-full sm:w-1/2" />
 
                         <label htmlFor="bio" className="text-sm font-medium">{`Bio (max 120 letters)`}</label>
-                        <textarea
+                        <Textarea
                             id="bio"
                             maxLength={120}
-                            onInput={(e) => {
-                                const target = e.target as HTMLTextAreaElement;
-                                target.value = target.value.slice(0, 120);
-                            }}
+                            placeholder="Tell us about yourself..."
+                            className="resize-none w-full sm:w-1/2 h-20 sm:h-28 border border-gold-400/30 focus-visible:border-gold-400/30 focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:ring-gold-400/30 outline-none"
                             rows={4}
-                            cols={10}
-                            className="border border-gold-600/30 rounded-2xl p-4 w-full bg-midnight-700 text-offwhite-200"
-                            placeholder="comment"></textarea>
+                        />
                     </div>
                     <Button className="w-full sm:w-auto block sm:hidden">Save</Button>
                 </div>
